@@ -1,10 +1,33 @@
 import { useState } from 'react';
-import { RotateCcw, Calculator, Zap, Droplet, Minus } from 'lucide-react';
+import {
+  RotateCcw,
+  Calculator,
+  Zap,
+  Droplet,
+  Minus,
+  Coffee,
+  HeartPulse,
+  ShoppingBasket,
+  Truck,
+  Shirt,
+  Sprout,
+  Apple,
+  Banknote,
+  Utensils,
+  PackageX,
+  ArrowUpRight,
+  ArrowDownRight,
+} from 'lucide-react';
 import type { PageId } from '@/components/Navbar';
 import PageHeader from '@/components/PageHeader';
 import Collapsible from '@/components/Collapsible';
 import KeyTakeaway from '@/components/KeyTakeaway';
-import { calcElasticityMidpoint, calcTotalRevenue, round, ElasticityResult } from '@/lib/economics';
+import {
+  calcElasticityMidpoint,
+  calcTotalRevenue,
+  round,
+  ElasticityResult,
+} from '@/lib/economics';
 
 interface Props {
   onNavigate: (page: PageId) => void;
@@ -14,6 +37,53 @@ const EXAMPLES = [
   { label: 'Elastic (> 1)', p1: 4, p2: 6, q1: 20, q2: 10, icon: Zap, color: 'demand' },
   { label: 'Inelastic (< 1)', p1: 4, p2: 6, q1: 100, q2: 90, icon: Droplet, color: 'supply' },
   { label: 'Unit elastic (= 1)', p1: 4, p2: 6, q1: 20, q2: 13.33, icon: Minus, color: 'navy' },
+];
+
+const DETERMINANTS = [
+  {
+    icon: ShoppingBasket,
+    title: 'Substitutes',
+    question: 'Are there many substitutes for this product?',
+    rule: 'More available substitutes → more elastic. Limited substitutes → inelastic.',
+    example: {
+      heading: 'Example: Cereal',
+      body: 'There are many alternatives for a similar type of cereal — Cocopops from Kellogg\'s and CocoSnaps from Tesco. With so many stand-ins, buyers easily switch when prices move, making cereal elastic.',
+    },
+    accent: 'demand',
+  },
+  {
+    icon: Truck,
+    title: 'Necessity',
+    question: 'Is this service necessary for me?',
+    rule: 'Luxuries are elastic. Necessities are inelastic.',
+    example: {
+      heading: 'Example: Food delivery',
+      body: 'Food itself is essential for survival, so it is inelastic. But having fast food delivered to you by services like Deliveroo is a luxury — that extra convenience makes food delivery elastic.',
+    },
+    accent: 'supply',
+  },
+  {
+    icon: Shirt,
+    title: 'Market Definition',
+    question: 'A specific product I can replace — but what about the broad category?',
+    rule: 'The more narrowly the market is defined, the more elastic it tends to become.',
+    example: {
+      heading: 'Example: Jacket vs. Leather Jacket',
+      body: 'A jacket is essential to survive the Irish weather, so the broad category is inelastic. But leather jackets are a specific sub-category: if their price rises, buyers switch to a different style of jacket. That makes leather jackets elastic.',
+    },
+    accent: 'navy',
+  },
+  {
+    icon: Sprout,
+    title: 'Time Horizon',
+    question: 'Will the elasticity of this product change in the future?',
+    rule: 'Demand is more elastic in the long run as consumers adapt.',
+    example: {
+      heading: 'Example: Store-bought vs. home-grown vegetables',
+      body: 'If vegetable prices suddenly rise, immediate demand stays high — inelastic in the short run. Over time, consumers adapt by growing their own vegetables in the garden, so store-bought vegetables become elastic in the long run.',
+    },
+    accent: 'success',
+  },
 ];
 
 function ElasticityBar({ result }: { result: ElasticityResult | null }) {
@@ -59,6 +129,15 @@ function ElasticityVisual({ type }: { type: 'elastic' | 'inelastic' | 'unit' }) 
   );
 }
 
+function StepLine({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 py-2 border-b border-navy-100 last:border-0">
+      <span className="text-xs font-semibold uppercase tracking-wider text-navy-400 sm:w-32 shrink-0">{label}</span>
+      <span className="font-mono text-sm text-navy-800">{value}</span>
+    </div>
+  );
+}
+
 export default function ElasticityPage({ onNavigate }: Props) {
   const [p1, setP1] = useState('4');
   const [p2, setP2] = useState('6');
@@ -101,12 +180,19 @@ export default function ElasticityPage({ onNavigate }: Props) {
     return `Demand is unit elastic (|E| ≈ ${result.absElasticity}). The percentage change in quantity matches the percentage change in price. Total revenue stays roughly the same when price changes.`;
   };
 
+  // Worked example: Pink Lady apples (simple % change method, not midpoint)
+  const pinkOriginal = 3.4;
+  const pinkNew = 4.0;
+  const pinkPctPrice = ((pinkNew - pinkOriginal) / pinkOriginal) * 100;
+  const pinkPctQty = -30;
+  const pinkEd = pinkPctQty / pinkPctPrice;
+
   return (
     <>
       <PageHeader
         eyebrow="Topic 3 · Responsiveness"
         title="Price Elasticity"
-        subtitle="How strongly do buyers respond to a price change? Calculate elasticity yourself with the midpoint method and discover why it matters for revenue."
+        subtitle="How strongly do buyers respond to a price change? Work through everyday examples, calculate elasticity yourself, and discover why it matters for revenue."
         next={{ id: 'price-controls', label: 'Price Controls' }}
         onNavigate={onNavigate}
       />
@@ -146,6 +232,53 @@ export default function ElasticityPage({ onNavigate }: Props) {
           </div>
         </div>
 
+        {/* Everyday life intro */}
+        <div>
+          <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Elasticity in Everyday Life</h2>
+          <p className="text-navy-600 mb-6 max-w-3xl leading-relaxed">
+            We defined elasticity mathematically above — but what does it actually mean day to day?
+            There are many items and services we purchase every day. Some are <strong>elastic</strong>,
+            some are <strong>inelastic</strong>. The difference comes down to how sensitive buyers are
+            to a change in price.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="card p-6 border-l-4 border-demand-500">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-demand-500/10 flex items-center justify-center">
+                  <Coffee size={20} className="text-demand-600" />
+                </div>
+                <div>
+                  <span className="label-tag bg-demand-500/10 text-demand-600">Elastic</span>
+                  <h3 className="font-display font-bold text-lg text-navy-900 mt-1">A mediocre coffee</h3>
+                </div>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed">
+                If the low-quality americano at the local Insomnia café rose by <strong>€1.00</strong>, how
+                many people would stop buying it? Probably many — such a large jump in price for a
+                mediocre product easily turns customers away. Buyers are <em>sensitive</em> to the price
+                change, so demand is <strong>elastic</strong>.
+              </p>
+            </div>
+
+            <div className="card p-6 border-l-4 border-supply-500">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-supply-500/10 flex items-center justify-center">
+                  <HeartPulse size={20} className="text-supply-600" />
+                </div>
+                <div>
+                  <span className="label-tag bg-supply-500/10 text-supply-600">Inelastic</span>
+                  <h3 className="font-display font-bold text-lg text-navy-900 mt-1">Life-saving medicine</h3>
+                </div>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed">
+                How about prescription medicine — especially life-saving medication with no alternatives?
+                Even if the price jumps by hundreds of euros, people would still buy it. Buyers are
+                <em> not sensitive</em> to the price change, so demand is <strong>inelastic</strong>.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Three examples */}
         <div>
           <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Three Types of Demand</h2>
@@ -167,6 +300,80 @@ export default function ElasticityPage({ onNavigate }: Props) {
                 </div>
               );
             })}
+          </div>
+        </div>
+
+        {/* Worked example: Pink Lady apples */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-11 h-11 rounded-xl bg-demand-500/10 flex items-center justify-center">
+              <Apple size={22} className="text-demand-600" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-extrabold text-navy-900">Worked Example: Pink Lady Apples</h2>
+              <p className="text-sm text-navy-600">Let's apply the formula step by step.</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-8">
+            {/* Scenario */}
+            <div className="lg:col-span-2 space-y-4">
+              <div className="rounded-xl bg-navy-50 px-5 py-4">
+                <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">The Scenario</p>
+                <p className="text-sm text-navy-800 leading-relaxed">
+                  In a local supermarket, Pink Lady apples were originally <strong>€3.40</strong> per pack.
+                  The price rose to <strong>€4.00</strong> per pack, and the quantity demanded
+                  <strong> fell by 30%</strong>. Are Pink Lady apples elastic or inelastic — and why?
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-success-400/40 bg-success-400/10 px-5 py-4">
+                <p className="text-xs font-semibold text-success-600 uppercase tracking-wider mb-1">Verdict</p>
+                <p className="text-lg font-bold text-navy-900">|E| = 1.70 &gt; 1 → Elastic</p>
+                <p className="text-xs text-navy-600 mt-1">Buyers are responsive to the price increase.</p>
+              </div>
+            </div>
+
+            {/* Calculation */}
+            <div className="lg:col-span-3">
+              <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Calculation</p>
+              <div className="rounded-xl border border-navy-100 px-5 py-3">
+                <StepLine
+                  label="Step 1"
+                  value={`%ΔP = ((4.00 − 3.40) ÷ 3.40) × 100 = ${pinkPctPrice.toFixed(3)}%`}
+                />
+                <StepLine
+                  label="Step 2"
+                  value={`E_d = %ΔQ ÷ %ΔP = ${pinkPctQty}% ÷ ${pinkPctPrice.toFixed(3)}% = ${pinkEd.toFixed(2)}`}
+                />
+                <StepLine
+                  label="Step 3"
+                  value={`|${pinkEd.toFixed(2)}| = 1.70 > 1  →  elastic`}
+                />
+              </div>
+
+              <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mt-5 mb-2">Why might it be elastic?</p>
+              <div className="space-y-2">
+                <div className="rounded-lg bg-navy-50/60 px-4 py-3">
+                  <p className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                    <ShoppingBasket size={15} className="text-demand-600" /> Substitution
+                  </p>
+                  <p className="text-sm text-navy-600 leading-relaxed mt-1">
+                    Pink Lady apples can be easily substituted by other apple brands such as Gala or
+                    Granny Smith. When the price rises, customers switch to cheaper alternatives.
+                  </p>
+                </div>
+                <div className="rounded-lg bg-navy-50/60 px-4 py-3">
+                  <p className="text-sm font-bold text-navy-900 flex items-center gap-2">
+                    <HeartPulse size={15} className="text-supply-600" /> Necessity
+                  </p>
+                  <p className="text-sm text-navy-600 leading-relaxed mt-1">
+                    Apples are not essential to our diet — customers may choose other fruits instead,
+                    which makes apples in general elastic.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -315,20 +522,93 @@ export default function ElasticityPage({ onNavigate }: Props) {
         </div>
 
         {/* Determinants */}
+        <div>
+          <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Determinants of Elasticity</h2>
+          <p className="text-navy-600 mb-6 max-w-3xl">There are many aspects that affect the elasticity of a product. Here are four of the most important.</p>
+          <div className="grid sm:grid-cols-2 gap-6">
+            {DETERMINANTS.map((d) => {
+              const Icon = d.icon;
+              const accentText =
+                d.accent === 'demand' ? 'text-demand-600' : d.accent === 'supply' ? 'text-supply-600' : d.accent === 'success' ? 'text-success-600' : 'text-navy-700';
+              const accentBg =
+                d.accent === 'demand' ? 'bg-demand-500/10' : d.accent === 'supply' ? 'bg-supply-500/10' : d.accent === 'success' ? 'bg-success-400/10' : 'bg-navy-100';
+              return (
+                <div key={d.title} className="card p-6 flex flex-col">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className={`w-11 h-11 rounded-xl ${accentBg} flex items-center justify-center shrink-0`}>
+                      <Icon size={22} className={accentText} />
+                    </div>
+                    <h3 className="font-display font-bold text-lg text-navy-900">{d.title}</h3>
+                  </div>
+                  <p className="text-sm text-navy-500 italic mb-2">{d.question}</p>
+                  <p className="text-sm text-navy-700 leading-relaxed mb-4">{d.rule}</p>
+                  <div className="mt-auto rounded-xl bg-navy-50/70 px-4 py-3">
+                    <p className="text-xs font-bold text-navy-900 uppercase tracking-wider mb-1">{d.example.heading}</p>
+                    <p className="text-sm text-navy-600 leading-relaxed">{d.example.body}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Income & elasticity */}
         <div className="card p-6 lg:p-8">
-          <h2 className="text-2xl font-extrabold text-navy-900 mb-4">Determinants of Elasticity</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { t: 'Substitutes', d: 'More available substitutes → more elastic. Few substitutes → inelastic.' },
-              { t: 'Necessity vs Luxury', d: 'Necessities are inelastic; luxuries are elastic.' },
-              { t: 'Share of Income', d: 'Goods that take a large share of income are more elastic.' },
-              { t: 'Time to Adjust', d: 'Demand is more elastic in the long run as consumers adapt.' },
-            ].map((d) => (
-              <div key={d.t} className="rounded-xl border border-navy-100 p-4">
-                <h3 className="font-bold text-navy-900 mb-1">{d.t}</h3>
-                <p className="text-sm text-navy-600 leading-relaxed">{d.d}</p>
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-11 h-11 rounded-xl bg-navy-100 flex items-center justify-center">
+              <Banknote size={22} className="text-navy-700" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-extrabold text-navy-900">Another Aspect: Income</h2>
+              <p className="text-sm text-navy-600">How much we earn also affects demand.</p>
+            </div>
+          </div>
+
+          <p className="text-navy-700 leading-relaxed mb-6 max-w-3xl">
+            Goods can be categorised into <strong>Normal Goods</strong> and <strong>Inferior Goods</strong>,
+            depending on how demand responds to a change in income.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-xl border-2 border-success-400/40 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <ArrowUpRight size={20} className="text-success-600" />
+                <h3 className="font-display font-bold text-lg text-success-600">Normal Goods</h3>
               </div>
-            ))}
+              <p className="text-sm text-navy-700 leading-relaxed mb-4">
+                Products or services for which quantity demanded <strong>increases</strong> as
+                customers' income rises.
+              </p>
+              <div className="rounded-lg bg-success-400/10 px-4 py-3">
+                <p className="text-xs font-bold text-success-600 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <Utensils size={14} /> Example: Restaurant meals
+                </p>
+                <p className="text-sm text-navy-600 leading-relaxed">
+                  Demand rises as income rises, and falls as income falls. When people earn more, they
+                  dine out more often.
+                </p>
+              </div>
+            </div>
+
+            <div className="rounded-xl border-2 border-supply-500/40 p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <ArrowDownRight size={20} className="text-supply-600" />
+                <h3 className="font-display font-bold text-lg text-supply-600">Inferior Goods</h3>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed mb-4">
+                Products or services for which quantity demanded <strong>decreases</strong> as
+                customers' income rises — consumers move to higher-quality products they can now afford.
+              </p>
+              <div className="rounded-lg bg-supply-500/10 px-4 py-3">
+                <p className="text-xs font-bold text-supply-600 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                  <PackageX size={14} /> Example: Off-brand items
+                </p>
+                <p className="text-sm text-navy-600 leading-relaxed">
+                  Demand falls as income rises and grows as income falls. Customers switch between
+                  budget and branded products depending on what they can afford.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -344,7 +624,11 @@ export default function ElasticityPage({ onNavigate }: Props) {
         </div>
 
         <KeyTakeaway>
-          Elasticity measures responsiveness. When |E| &gt; 1 demand is elastic and price cuts raise revenue; when |E| &lt; 1 demand is inelastic and price hikes raise revenue. The midpoint method keeps the calculation consistent regardless of direction.
+          Elasticity measures how responsive buyers are to price. When |E| &gt; 1 demand is elastic
+          (e.g. a mediocre coffee) and price cuts raise revenue; when |E| &lt; 1 demand is inelastic
+          (e.g. life-saving medicine) and price hikes raise revenue. Substitutes, necessity, market
+          definition, and time horizon all shape elasticity — and income decides whether a good is
+          normal or inferior.
         </KeyTakeaway>
       </div>
     </>
