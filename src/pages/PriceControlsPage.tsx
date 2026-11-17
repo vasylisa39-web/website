@@ -82,6 +82,42 @@ export default function PriceControlsPage({ onNavigate }: Props) {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+        {/* What are price controls & why they exist */}
+        <div className="grid lg:grid-cols-3 gap-6">
+          <div className="card p-6 lg:col-span-2">
+            <h2 className="font-display font-bold text-xl text-navy-900 mb-3">
+              What Are Price Controls and Why Do They Exist?
+            </h2>
+            <p className="text-navy-700 leading-relaxed mb-4">
+              The price of a product or service is not only determined by supply and demand. Sometimes
+              governments, regulatory authorities, and industry organisations may set a maximum or
+              minimum price. A <strong>price ceiling</strong> is when a maximum is set, and a
+              <strong> price floor</strong> is when a minimum is set. In economics, we call this
+              restriction a <strong>price control</strong>. In this section, we explore price controls
+              imposed by governments.
+            </p>
+            <p className="text-navy-700 leading-relaxed">
+              So why do governments control the prices of products in a market? They do this in hopes
+              of influencing market outcomes to <strong>protect consumers or producers</strong>.
+            </p>
+          </div>
+
+          <div className="card p-6">
+            <h3 className="font-display font-bold text-lg text-navy-900 mb-3">Binding vs. Non-Binding</h3>
+            <p className="text-sm text-navy-700 leading-relaxed mb-3">
+              Price controls can either be <strong>binding</strong> or <strong>non-binding</strong>.
+            </p>
+            <div className="space-y-2">
+              <div className="rounded-lg bg-error-400/10 px-3 py-2">
+                <p className="text-sm text-navy-800"><strong>Binding</strong> — prevents the market from reaching its equilibrium price, directly affecting the market outcome.</p>
+              </div>
+              <div className="rounded-lg bg-navy-50 px-3 py-2">
+                <p className="text-sm text-navy-800"><strong>Non-binding</strong> — the market still reaches equilibrium, so the outcome is unaffected.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Definitions */}
         <div className="grid lg:grid-cols-2 gap-6">
           <div className="card p-6 border-l-4 border-error-500">
@@ -229,6 +265,51 @@ export default function PriceControlsPage({ onNavigate }: Props) {
               <li><strong>Minimum wage</strong> — a floor on hourly wages. When above the market-clearing wage, it can create surplus labour (unemployment) in simple models.</li>
               <li><strong>Agricultural price supports</strong> — governments guarantee minimum prices for crops, sometimes buying the surplus.</li>
             </ul>
+          </div>
+        </div>
+
+        {/* Worked examples in detail */}
+        <div>
+          <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Worked Examples in Detail</h2>
+          <p className="text-navy-600 mb-6 max-w-3xl">Let's walk through the rent ceiling and minimum wage scenarios step by step.</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="card p-6 border-l-4 border-error-500">
+              <div className="flex items-center gap-2 mb-3">
+                <ArrowDownCircle size={22} className="text-error-500" />
+                <h3 className="font-display font-bold text-lg text-navy-900">Price Ceiling: Rent in City A</h3>
+              </div>
+              <div className="space-y-3 text-sm text-navy-700 leading-relaxed">
+                <p>
+                  The equilibrium price for rent in City A is <strong>$1,500</strong> a month. The
+                  government sets a price ceiling of <strong>$1,000</strong>.
+                </p>
+                <div className="rounded-lg bg-navy-50 px-4 py-3 space-y-1.5">
+                  <p>1. At $1,000, more people want to rent properties → <strong>quantity demanded rises</strong>.</p>
+                  <p>2. Some landlords withdraw from the rental market as it becomes less profitable → <strong>quantity supplied falls</strong>.</p>
+                  <p>3. Quantity demanded exceeds quantity supplied → a <strong>shortage of rental housing</strong>.</p>
+                </div>
+                <p className="text-xs text-navy-500 italic">The ceiling is binding because $1,000 is below the $1,500 equilibrium.</p>
+              </div>
+            </div>
+
+            <div className="card p-6 border-l-4 border-warning-500">
+              <div className="flex items-center gap-2 mb-3">
+                <ArrowUpCircle size={22} className="text-warning-500" />
+                <h3 className="font-display font-bold text-lg text-navy-900">Price Floor: Wages in Country C</h3>
+              </div>
+              <div className="space-y-3 text-sm text-navy-700 leading-relaxed">
+                <p>
+                  The equilibrium wage in Country C is <strong>$10</strong> an hour. The government sets
+                  a minimum wage (price floor) of <strong>$15</strong> an hour.
+                </p>
+                <div className="rounded-lg bg-navy-50 px-4 py-3 space-y-1.5">
+                  <p>1. At $15, more people want to work → <strong>quantity supplied of labour rises</strong>.</p>
+                  <p>2. Some companies reduce the number of workers they employ to cut costs → <strong>quantity demanded of labour falls</strong>.</p>
+                  <p>3. Quantity supplied exceeds quantity demanded → a <strong>surplus of labour</strong> (unemployment).</p>
+                </div>
+                <p className="text-xs text-navy-500 italic">The floor is binding because $15 is above the $10 equilibrium.</p>
+              </div>
+            </div>
           </div>
         </div>
 
