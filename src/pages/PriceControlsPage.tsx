@@ -317,7 +317,7 @@ export default function PriceControlsPage({ onNavigate }: Props) {
         <div className="rounded-2xl border-2 border-dashed border-navy-200 p-6">
           <h3 className="font-display font-bold text-lg text-navy-900 mb-3">Try It Yourself</h3>
           <ul className="space-y-2 text-sm text-navy-700">
-            <li>1. Select <strong>Price Ceiling</strong> and drag above equilibrium ($${eq.price.toFixed(2)}). Notice it becomes non-binding.</li>
+            <li>1. Select <strong>Price Ceiling</strong> and drag above equilibrium (${eq.price.toFixed(2)}). Notice it becomes non-binding.</li>
             <li>2. Drag the ceiling below equilibrium and watch the shortage grow as you lower it.</li>
             <li>3. Switch to <strong>Price Floor</strong> and drag below equilibrium — it does nothing (non-binding).</li>
             <li>4. Raise the floor above equilibrium and watch the surplus appear.</li>
