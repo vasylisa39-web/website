@@ -86,9 +86,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
         {/* Intro */}
         <div className="card p-6 lg:p-8">
           <p className="text-navy-700 leading-relaxed text-lg">
-            Supply and demand explain how price and quantities are determined in a market. They act
-            as economic actors as they interact — the choices of buyers and sellers together set the
-            price at which goods and services trade.
+            Supply and demand explain how prices and quantities are determined in a market. They interact through the choices of buyers and sellers, which together set the prices at which goods and services are traded.
           </p>
         </div>
 
