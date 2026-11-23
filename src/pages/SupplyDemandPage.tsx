@@ -487,11 +487,10 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
         </div>
 
         <KeyTakeaway>
-          Supply and demand explain how price and quantities are determined in a market. The demand
-          and supply curves visualise that relationship, while schedules lay it out in a table. A
-          change in price moves you along a curve; a change in any other determinant shifts the curve
-          entirely. Related goods matter too: a substitute's price rise boosts demand for the other
-          good, while a complement's price rise lowers it.
+          Supply and demand explain how prices and quantities are determined in a market. The demand
+          and supply curves visualise these relationships, while schedules present them in a table. A
+          change in price moves you along a curve, while a change in any other determinant shifts the entire curve. 
+          Related goods matter too: a rise in the price of a substitute increases demand for the other good, while a rise in the price of a complement decreases it.
         </KeyTakeaway>
       </div>
     </>
