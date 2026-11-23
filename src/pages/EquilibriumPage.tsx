@@ -1,5 +1,16 @@
 import { useState, useMemo } from 'react';
-import { RotateCcw, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import {
+  RotateCcw,
+  AlertTriangle,
+  CheckCircle2,
+  BookOpen,
+  TrendingDown,
+  TrendingUp,
+  ExternalLink,
+  Quote,
+  Package,
+  Gamepad2,
+} from 'lucide-react';
 import type { PageId } from '@/components/Navbar';
 import PageHeader from '@/components/PageHeader';
 import SupplyDemandGraph from '@/components/SupplyDemandGraph';
@@ -189,11 +200,136 @@ export default function EquilibriumPage({ onNavigate }: Props) {
           </div>
         </div>
 
+        {/* Key principles of equilibrium */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-navy-100 flex items-center justify-center">
+              <BookOpen size={20} className="text-navy-700" />
+            </div>
+            <h2 className="text-2xl font-extrabold text-navy-900">Key Principles of Equilibrium</h2>
+          </div>
+          <ul className="space-y-3 text-sm text-navy-700 leading-relaxed">
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium is a <strong>state of rest</strong> in which the quantity demanded and quantity supplied of a good in a market are the same at a certain price <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium or <strong>market price</strong> is the price where quantity demanded is equal to the quantity supplied.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span><strong>Equilibrium quantity</strong> is the quantity bought and sold at the equilibrium price.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>In a market, the relationship between supply and demand applies <strong>pressure on price</strong>.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>If supply is greater than demand (surplus) or demand is greater than supply (shortage), there is pressure on price to change as a way of <strong>restoring equilibrium</strong> within a market <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium occurs when the amount sellers are willing and able to supply is the same as the amount buyers are willing and able to buy. It is considered ideal in a competitive market but can be difficult to achieve due to varying factors <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></li>
+          </ul>
+        </div>
+
+        {/* Surplus in depth */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-10 rounded-xl bg-warning-400/15 flex items-center justify-center">
+              <TrendingDown size={20} className="text-warning-500" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-extrabold text-navy-900">Surplus in Depth</h2>
+              <p className="text-sm text-navy-600">Excess supply and how the market responds.</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="space-y-3 text-sm text-navy-700 leading-relaxed">
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>A <strong>surplus</strong> occurs when the amount sellers are willing and able to sell outweighs the amount buyers wish to buy at a given price <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Sellers find themselves unable to sell the full amount they are willing to sell — known as a <strong>surplus</strong> or <strong>excess supply</strong>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Due to increasing excess stocks, sellers are tempted to <strong>decrease prices</strong> to boost demand <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Lower prices lead some consumers to purchase more, causing a <strong>movement along the demand curve</strong> until an equilibrium point is reached.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Some sellers reduce the amount they are willing to sell, triggering a <strong>movement along the supply curve</strong>. This helps decrease excess stock but does not increase sales due to the Law of Demand <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Prices can continue to fall until the market reaches equilibrium — the desired state for a competitive market.</span></p>
+            </div>
+
+            {/* Prime case study */}
+            <div className="rounded-xl border-2 border-warning-400/30 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Package size={18} className="text-warning-500" />
+                <h3 className="font-display font-bold text-navy-900">Case Study: Prime Hydration</h3>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed mb-3">
+                Launched by influencers Logan Paul and KSI in 2022, a powerful marketing campaign
+                targeted at children and hysteria around the drink's <strong>scarcity</strong> meant demand
+                far outweighed supply — an initial <strong>shortage</strong>.
+              </p>
+              <div className="rounded-lg bg-navy-50 px-4 py-3 mb-3">
+                <p className="text-sm text-navy-600 leading-relaxed">
+                  <Quote size={13} className="inline text-warning-500 mr-1" />
+                  "Shoppers climbing over each other to get their hands on the luridly coloured bottles."
+                </p>
+                <p className="text-xs text-navy-400 mt-1">— Emma Jacobs, FT, 2023</p>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed">
+                In recent years, demand diminished and Prime found itself with <strong>large amounts of
+                excess stock</strong> — a supplier surplus. They have since been forced to reduce output as it
+                heavily exceeded overall market demand for the product.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-5 rounded-xl bg-navy-50/70 px-5 py-3">
+            <p className="text-xs text-navy-600 leading-relaxed italic">
+              "The effect on price and demand bought and sold depend on whether the demand curve or
+              supply curve shifted in the first place (or both). This analysis of markets is referred to as
+              <strong> comparative statics</strong>, because we are comparing one initial static equilibrium
+              with another once market forces have worked their way through." — Mankiw, Taylor, 2026
+            </p>
+          </div>
+        </div>
+
+        {/* Shortages in depth */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-10 rounded-xl bg-error-400/15 flex items-center justify-center">
+              <TrendingUp size={20} className="text-error-500" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-extrabold text-navy-900">Shortages in Depth</h2>
+              <p className="text-sm text-navy-600">Excess demand and how the market responds.</p>
+            </div>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="space-y-3 text-sm text-navy-700 leading-relaxed">
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Shortages occur when the amount consumers are willing and able to buy is greater than the amount sellers are willing and able to supply — demand is not being met <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>If there are too many buyers for too few goods, sellers may <strong>increase prices</strong> as it increases revenues, and due to excess demand they are at decreased risk of a supplier surplus <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>As price rises, some consumers will no longer be willing or able to purchase the good, triggering a <strong>movement along the demand curve</strong> <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Rising prices may tempt some producers to produce more as it is more profitable, so <strong>supply increases</strong>. This continues until an equilibrium point is reached.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Individual buyers and sellers are unaware they are forces of change, but the combined actions of everyone in a market can <strong>automatically adjust</strong> the market toward an equilibrium position <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+            </div>
+
+            {/* PS5 case study */}
+            <div className="rounded-xl border-2 border-error-400/30 p-5">
+              <div className="flex items-center gap-2 mb-3">
+                <Gamepad2 size={18} className="text-error-500" />
+                <h3 className="font-display font-bold text-navy-900">Case Study: PlayStation 5</h3>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed mb-3">
+                On release in late 2020, Sony were unable to meet market demand for the PS5. Retailers
+                and resellers took advantage of the shortage by charging far higher prices than the
+                console's initial price.
+              </p>
+              <div className="rounded-lg bg-navy-50 px-4 py-3 mb-3">
+                <p className="text-sm text-navy-600 leading-relaxed">
+                  <Quote size={13} className="inline text-error-500 mr-1" />
+                  "Quickly sold out online and buyers relisted consoles online at inflated prices."
+                </p>
+                <p className="text-xs text-navy-400 mt-1">— Jonathan Eley, FT, 2020</p>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed">
+                Eventually supply increased and market demand was met, with prices plateauing. In recent
+                years, repeated price hikes have occurred due to rising production costs for Sony, driven
+                by excess demand for RAM from the <strong>AI boom</strong> — another supplier shortage as
+                chipmakers struggle to meet the demand of AI companies for their chips.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Try it yourself */}
         <div className="rounded-2xl border-2 border-dashed border-navy-200 p-6">
           <h3 className="font-display font-bold text-lg text-navy-900 mb-3">Try It Yourself</h3>
           <ul className="space-y-2 text-sm text-navy-700">
-            <li>1. Drag the price slider <strong>below</strong> the equilibrium ($${eq.price.toFixed(2)}). What happens? Read the shortage calculation.</li>
+            <li>1. Drag the price slider <strong>below</strong> the equilibrium ($5.00). What happens? Read the shortage calculation.</li>
             <li>2. Drag the price <strong>above</strong> equilibrium. Watch the surplus bar grow.</li>
             <li>3. Set the price exactly at equilibrium. Confirm Qd = Qs and the shortage/surplus is zero.</li>
           </ul>
@@ -213,6 +349,49 @@ export default function EquilibriumPage({ onNavigate }: Props) {
         <KeyTakeaway>
           Equilibrium is where quantity demanded equals quantity supplied. Prices below equilibrium create shortages (upward pressure); prices above create surpluses (downward pressure). In competitive markets, this pressure pushes price toward the equilibrium point.
         </KeyTakeaway>
+
+        {/* References */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <BookOpen size={20} className="text-navy-700" />
+            <h2 className="text-xl font-extrabold text-navy-900">References</h2>
+          </div>
+          <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
+            <li>
+              <p>Cengage Learning, N. Gregory Mankiw and Mark P. Taylor, <em>Economics</em>, 7th edition.</p>
+            </li>
+            <li>
+              <p>
+                Financial Times — Jonathan Eley, <em>PlayStation 5 Launch in UK Descends into Chaos</em>,
+                published 19/11/2020. Available at:
+              </p>
+              <a
+                href="https://www.ft.com/content/c316acaa-c99b-48ca-8374-c9191f4423b2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                ft.com/content/c316acaa-c99b-48ca-8374-c9191f4423b2
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+            <li>
+              <p>
+                Financial Times — Emma Jacobs, <em>The Playground Prime Craze Is a Lesson in Modern Marketing</em>,
+                published 11/3/2023. Available at:
+              </p>
+              <a
+                href="https://www.ft.com/content/4e9c33f2-deeb-4dbe-a296-3cf44bb2c5de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                ft.com/content/4e9c33f2-deeb-4dbe-a296-3cf44bb2c5de
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+          </ol>
+        </div>
       </div>
     </>
   );
