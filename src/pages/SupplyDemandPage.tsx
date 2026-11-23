@@ -353,7 +353,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
           <p className="text-sm text-navy-700 leading-relaxed">
             A <strong>demand schedule</strong> shows how much buyers are willing to consume at various
             prices, while a <strong>supply schedule</strong> shows the amount sellers are willing to
-            create and sell at those same prices.
+            produce and sell at those same prices.
           </p>
         </div>
 
