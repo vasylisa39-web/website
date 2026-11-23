@@ -1,5 +1,21 @@
 import { useState, useMemo } from 'react';
-import { RotateCcw, TrendingUp, TrendingDown, ArrowRight } from 'lucide-react';
+import {
+  RotateCcw,
+  TrendingUp,
+  TrendingDown,
+  ArrowRight,
+  LineChart as LineChartIcon,
+  Table,
+  Replace,
+  Link2,
+  Coffee,
+  CupSoda,
+  Tv,
+  Dumbbell,
+  CircleDot,
+  Sandwich,
+  LayoutGrid,
+} from 'lucide-react';
 import type { PageId } from '@/components/Navbar';
 import PageHeader from '@/components/PageHeader';
 import SupplyDemandGraph from '@/components/SupplyDemandGraph';
@@ -67,6 +83,50 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+        {/* Intro */}
+        <div className="card p-6 lg:p-8">
+          <p className="text-navy-700 leading-relaxed text-lg">
+            Supply and demand explain how price and quantities are determined in a market. They act
+            as economic actors as they interact — the choices of buyers and sellers together set the
+            price at which goods and services trade.
+          </p>
+        </div>
+
+        {/* What is demand / supply */}
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="card p-6">
+            <h3 className="font-display font-bold text-xl text-navy-900 mb-3 flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-demand-500" /> What Is Demand?
+            </h3>
+            <p className="text-navy-700 leading-relaxed mb-4">
+              <strong>Quantity demanded</strong> is the amount of a good that buyers are
+              <strong> willing and able</strong> to purchase at a given price.
+            </p>
+            <div className="definition">
+              <p className="text-sm text-navy-800">
+                <strong>QD</strong> decreases as <strong>P</strong> increases &nbsp;·&nbsp;
+                <strong>QD</strong> increases as <strong>P</strong> decreases.
+              </p>
+            </div>
+          </div>
+
+          <div className="card p-6">
+            <h3 className="font-display font-bold text-xl text-navy-900 mb-3 flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-supply-500" /> What Is Supply?
+            </h3>
+            <p className="text-navy-700 leading-relaxed mb-4">
+              <strong>Quantity supplied</strong> is the amount that sellers are
+              <strong> willing and able</strong> to sell at different prices.
+            </p>
+            <div className="definition">
+              <p className="text-sm text-navy-800">
+                <strong>QS</strong> increases as <strong>P</strong> increases &nbsp;·&nbsp;
+                <strong>QS</strong> decreases as <strong>P</strong> decreases.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Core explanation */}
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="card p-6">
@@ -216,6 +276,87 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
           </div>
         </div>
 
+        {/* Curves & schedules */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="card p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <LineChartIcon size={20} className="text-demand-600" />
+              <h3 className="font-display font-bold text-lg text-navy-900">The Demand Curve</h3>
+            </div>
+            <p className="text-sm text-navy-700 leading-relaxed mb-3">
+              A visual representation of the relationship between price and the quantity demanded for
+              a good or service. It is necessary because it:
+            </p>
+            <ul className="space-y-1.5 text-sm text-navy-700">
+              <li className="flex gap-2"><CircleDot size={14} className="text-demand-500 mt-1 shrink-0" /> <span>Shows how much of a good/service buyers want at different prices</span></li>
+              <li className="flex gap-2"><CircleDot size={14} className="text-demand-500 mt-1 shrink-0" /> <span>Aids in the understanding of market behaviour</span></li>
+              <li className="flex gap-2"><CircleDot size={14} className="text-demand-500 mt-1 shrink-0" /> <span>Shows the prices at which a company can maintain consumer demand and earn a successful profit</span></li>
+              <li className="flex gap-2"><CircleDot size={14} className="text-demand-500 mt-1 shrink-0" /> <span>Helps in the decision of price setting</span></li>
+              <li className="flex gap-2"><CircleDot size={14} className="text-demand-500 mt-1 shrink-0" /> <span>Forecasts sales</span></li>
+            </ul>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <LineChartIcon size={20} className="text-supply-600" />
+              <h3 className="font-display font-bold text-lg text-navy-900">The Supply Curve</h3>
+            </div>
+            <p className="text-sm text-navy-700 leading-relaxed mb-3">
+              A visual representation of the relationship between the price and the quantity supplied
+              for a good or service. It is necessary because it:
+            </p>
+            <ul className="space-y-1.5 text-sm text-navy-700">
+              <li className="flex gap-2"><CircleDot size={14} className="text-supply-500 mt-1 shrink-0" /> <span>Shows how much of a good/service sellers are willing to sell at various prices</span></li>
+              <li className="flex gap-2"><CircleDot size={14} className="text-supply-500 mt-1 shrink-0" /> <span>Analyses market shifts</span></li>
+              <li className="flex gap-2"><CircleDot size={14} className="text-supply-500 mt-1 shrink-0" /> <span>Shows the ability of sellers to adjust their output</span></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Schedules */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div className="card p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Table size={20} className="text-demand-600" />
+              <h3 className="font-display font-bold text-lg text-navy-900">Demand Schedule</h3>
+            </div>
+            <p className="text-sm text-navy-700 leading-relaxed mb-3">
+              A table describing the link between the price and the quantity demanded of a
+              good or service.
+            </p>
+            <div className="definition">
+              <p className="text-sm text-navy-800">Allows businesses and economists a direct market analysis.</p>
+            </div>
+          </div>
+
+          <div className="card p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Table size={20} className="text-supply-600" />
+              <h3 className="font-display font-bold text-lg text-navy-900">Supply Schedule</h3>
+            </div>
+            <p className="text-sm text-navy-700 leading-relaxed mb-3">
+              A table describing the relationship between the price of a good or service and the
+              quantity supplied.
+            </p>
+            <div className="definition">
+              <p className="text-sm text-navy-800">Aids in profit maximisation and resource waste management.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Schedule comparison */}
+        <div className="rounded-2xl border-2 border-dashed border-navy-200 p-6">
+          <div className="flex items-center gap-2 mb-2">
+            <LayoutGrid size={18} className="text-navy-600" />
+            <h3 className="font-display font-bold text-lg text-navy-900">Difference Between a Supply Schedule and a Demand Schedule</h3>
+          </div>
+          <p className="text-sm text-navy-700 leading-relaxed">
+            A <strong>demand schedule</strong> shows how much buyers are willing to consume at various
+            prices, while a <strong>supply schedule</strong> shows the amount sellers are willing to
+            create and sell at those same prices.
+          </p>
+        </div>
+
         {/* Shifters */}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
@@ -251,8 +392,106 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
           </Collapsible>
         </div>
 
+        {/* Related goods: substitutes & complements */}
+        <div>
+          <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Related Goods: Substitutes &amp; Complements</h2>
+          <p className="text-navy-600 mb-6 max-w-3xl">
+            The price of one good can shift demand for another. The direction depends on whether the
+            two goods are <strong>substitutes</strong> or <strong>complements</strong>.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Substitute */}
+            <div className="card p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-demand-500/10 flex items-center justify-center">
+                  <Replace size={20} className="text-demand-600" />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-lg text-navy-900">Substitute Good</h3>
+                  <p className="text-xs text-navy-500">Can be replaced by a similar good.</p>
+                </div>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed mb-4">
+                If the price of one good <strong>rises</strong>, there will be a <strong>rise in
+                demand</strong> for the other.
+              </p>
+
+              <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Examples</p>
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="rounded-lg bg-navy-50 px-2 py-2.5 text-center">
+                  <CupSoda size={16} className="text-demand-600 mx-auto mb-1" />
+                  <p className="text-xs text-navy-700 font-semibold">Coke &amp; Pepsi</p>
+                </div>
+                <div className="rounded-lg bg-navy-50 px-2 py-2.5 text-center">
+                  <Coffee size={16} className="text-demand-600 mx-auto mb-1" />
+                  <p className="text-xs text-navy-700 font-semibold">Coffee &amp; Tea</p>
+                </div>
+                <div className="rounded-lg bg-navy-50 px-2 py-2.5 text-center">
+                  <Tv size={16} className="text-demand-600 mx-auto mb-1" />
+                  <p className="text-xs text-navy-700 font-semibold">Netflix &amp; Disney+</p>
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-navy-50/70 px-4 py-3">
+                <p className="text-xs font-bold text-navy-900 uppercase tracking-wider mb-1">Scenario</p>
+                <p className="text-sm text-navy-600 leading-relaxed">
+                  If the price of coffee in a café rises, many will switch to tea. The demand for tea
+                  (the substitute) <strong>rises</strong>, so tea sales rise while coffee sales
+                  <strong> fall</strong>.
+                </p>
+              </div>
+            </div>
+
+            {/* Complement */}
+            <div className="card p-6">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-xl bg-supply-500/10 flex items-center justify-center">
+                  <Link2 size={20} className="text-supply-600" />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-lg text-navy-900">Complementary Good</h3>
+                  <p className="text-xs text-navy-500">Used together with another good.</p>
+                </div>
+              </div>
+              <p className="text-sm text-navy-700 leading-relaxed mb-4">
+                If the price of one good <strong>rises</strong>, there will be a <strong>decrease in
+                demand</strong> for the other.
+              </p>
+
+              <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Examples</p>
+              <div className="grid grid-cols-3 gap-2 mb-4">
+                <div className="rounded-lg bg-navy-50 px-2 py-2.5 text-center">
+                  <Dumbbell size={16} className="text-supply-600 mx-auto mb-1" />
+                  <p className="text-xs text-navy-700 font-semibold">Racquet &amp; Balls</p>
+                </div>
+                <div className="rounded-lg bg-navy-50 px-2 py-2.5 text-center">
+                  <Coffee size={16} className="text-supply-600 mx-auto mb-1" />
+                  <p className="text-xs text-navy-700 font-semibold">Coffee &amp; Milk</p>
+                </div>
+                <div className="rounded-lg bg-navy-50 px-2 py-2.5 text-center">
+                  <Sandwich size={16} className="text-supply-600 mx-auto mb-1" />
+                  <p className="text-xs text-navy-700 font-semibold">Brush &amp; Paste</p>
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-navy-50/70 px-4 py-3">
+                <p className="text-xs font-bold text-navy-900 uppercase tracking-wider mb-1">Scenario</p>
+                <p className="text-sm text-navy-600 leading-relaxed">
+                  If a café increases the price of coffee, many will buy less of it. As many use
+                  coffee and milk together, the fall in coffee consumption means the café's sales of
+                  milk <strong>decrease</strong> as well.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <KeyTakeaway>
-          Prices emerge from the interaction of supply and demand. A change in price moves you along a curve; a change in any other determinant shifts the curve entirely. Equilibrium is where the two curves cross.
+          Supply and demand explain how price and quantities are determined in a market. The demand
+          and supply curves visualise that relationship, while schedules lay it out in a table. A
+          change in price moves you along a curve; a change in any other determinant shifts the curve
+          entirely. Related goods matter too: a substitute's price rise boosts demand for the other
+          good, while a complement's price rise lowers it.
         </KeyTakeaway>
       </div>
     </>
