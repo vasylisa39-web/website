@@ -625,10 +625,9 @@ export default function ElasticityPage({ onNavigate }: Props) {
 
         <KeyTakeaway>
           Elasticity measures how responsive buyers are to price. When |E| &gt; 1 demand is elastic
-          (e.g. a mediocre coffee) and price cuts raise revenue; when |E| &lt; 1 demand is inelastic
-          (e.g. life-saving medicine) and price hikes raise revenue. Substitutes, necessity, market
-          definition, and time horizon all shape elasticity — and income decides whether a good is
-          normal or inferior.
+          (e.g. a mediocre coffee) and when |E| &lt; 1 demand is inelastic
+          (e.g. life-saving medicine) assuming other factors remain constant. Substitutes, necessity, market
+          definition, and time horizon all all affect elasticity. Meanwhile, change in income also influences demand. Income elasticity measures how changes in income affect quantity demanded in a market. Based on this relationship, goods can be classified as either normal or inferior.
         </KeyTakeaway>
       </div>
     </>
