@@ -17,6 +17,13 @@ import {
   PackageX,
   ArrowUpRight,
   ArrowDownRight,
+  BookOpen,
+  ExternalLink,
+  Infinity as InfinityIcon,
+  Wheat,
+  GlassWater,
+  Pill,
+  Bolt as BoltIcon,
 } from 'lucide-react';
 import type { PageId } from '@/components/Navbar';
 import PageHeader from '@/components/PageHeader';
@@ -33,6 +40,72 @@ interface Props {
   onNavigate: (page: PageId) => void;
 }
 
+// Five PED graph types. All have Quantity on x-axis and Price on y-axis.
+type PEDType = 'perfectly-elastic' | 'elastic' | 'unit' | 'inelastic' | 'perfectly-inelastic';
+
+const PED_TYPES: {
+  type: PEDType;
+  label: string;
+  ped: string;
+  icon: typeof Zap;
+  color: string;
+  blurb: string;
+  example: string;
+  exampleIcon: typeof Zap;
+}[] = [
+  {
+    type: 'perfectly-elastic',
+    label: 'Perfectly Elastic Demand',
+    ped: 'PED = ∞',
+    icon: InfinityIcon,
+    color: 'demand',
+    blurb: 'Consumers are extremely responsive to price changes. Even a very small increase in price causes quantity demanded to drop to zero.',
+    example: 'Products sold in perfectly competitive markets, such as wheat, rice or other standardised commodities.',
+    exampleIcon: Wheat,
+  },
+  {
+    type: 'elastic',
+    label: 'Elastic Demand',
+    ped: 'PED > 1',
+    icon: Zap,
+    color: 'demand',
+    blurb: 'The percentage change in quantity demanded is greater than the percentage change in price. Consumers react strongly to price changes.',
+    example: 'Branded soft drinks, restaurant meals and clothing, where many alternatives are available.',
+    exampleIcon: GlassWater,
+  },
+  {
+    type: 'unit',
+    label: 'Unitary Elastic Demand',
+    ped: 'PED = 1',
+    icon: Minus,
+    color: 'navy',
+    blurb: 'The percentage change in quantity demanded is exactly equal to the percentage change in price. The curve is a rectangular hyperbola.',
+    example: 'Certain consumer goods and services where quantity demanded changes proportionally with price.',
+    exampleIcon: Minus,
+  },
+  {
+    type: 'inelastic',
+    label: 'Inelastic Demand',
+    ped: 'PED < 1',
+    icon: Droplet,
+    color: 'supply',
+    blurb: 'The percentage change in quantity demanded is smaller than the percentage change in price. Consumers are relatively less sensitive to price changes.',
+    example: 'Essential medicines, salt and electricity, which people continue to purchase despite price increases.',
+    exampleIcon: Pill,
+  },
+  {
+    type: 'perfectly-inelastic',
+    label: 'Perfectly Inelastic Demand',
+    ped: 'PED = 0',
+    icon: BoltIcon,
+    color: 'supply',
+    blurb: 'Quantity demanded remains completely unchanged regardless of how much the price increases or decreases. The curve is vertical.',
+    example: 'Life-saving medicines with no available alternatives or essential treatments for critical conditions.',
+    exampleIcon: HeartPulse,
+  },
+];
+
+// Calculator quick-load presets (kept for the calculator buttons)
 const EXAMPLES = [
   { label: 'Elastic (> 1)', p1: 4, p2: 6, q1: 20, q2: 10, icon: Zap, color: 'demand' },
   { label: 'Inelastic (< 1)', p1: 4, p2: 6, q1: 100, q2: 90, icon: Droplet, color: 'supply' },
@@ -110,21 +183,60 @@ function ElasticityBar({ result }: { result: ElasticityResult | null }) {
   );
 }
 
-// A simple visual of two demand curves with different steepness
-function ElasticityVisual({ type }: { type: 'elastic' | 'inelastic' | 'unit' }) {
-  const W = 160, H = 120, pad = 15;
-  const lines = {
-    elastic: { x1: pad, y1: 25, x2: W - pad, y2: H - pad },
-    inelastic: { x1: pad, y1: 55, x2: W - pad, y2: H - pad - 8 },
-    unit: { x1: pad, y1: pad, x2: W - pad, y2: H - pad },
-  };
-  const l = lines[type];
+// Visual representation of each PED demand curve. Q on x-axis, P on y-axis.
+function ElasticityVisual({ type }: { type: PEDType }) {
+  const W = 170, H = 130, pad = 18;
+  const axisColor = '#3a4a66';
+  const demandColor = '#3b6fd6';
+
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-28">
-      <line x1={pad} y1={pad} x2={pad} y2={H - pad} stroke="#3a4a66" strokeWidth="1.5" />
-      <line x1={pad} y1={H - pad} x2={W - pad} y2={H - pad} stroke="#3a4a66" strokeWidth="1.5" />
-      <line x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2} stroke="#3b6fd6" strokeWidth="3" />
-      <text x={W - pad - 4} y={l.y2 - 6} textAnchor="end" fontSize="11" fill="#2a54b0" fontWeight="800">D</text>
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-32">
+      {/* axes: P (y), Q (x) */}
+      <line x1={pad} y1={pad} x2={pad} y2={H - pad} stroke={axisColor} strokeWidth="1.5" />
+      <line x1={pad} y1={H - pad} x2={W - pad} y2={H - pad} stroke={axisColor} strokeWidth="1.5" />
+      <text x={4} y={pad + 4} fontSize="10" fill={axisColor} fontWeight="700">P</text>
+      <text x={W - pad - 2} y={H - 4} fontSize="10" fill={axisColor} fontWeight="700">Q</text>
+
+      {type === 'perfectly-elastic' && (
+        <>
+          <line x1={pad} y1={pad + 22} x2={W - pad} y2={pad + 22} stroke={demandColor} strokeWidth="3" />
+          <text x={W - pad - 4} y={pad + 16} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+        </>
+      )}
+
+      {type === 'elastic' && (
+        <>
+          <line x1={pad} y1={pad + 10} x2={W - pad} y2={H - pad} stroke={demandColor} strokeWidth="3" />
+          <text x={W - pad - 4} y={H - pad - 5} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+        </>
+      )}
+
+      {type === 'unit' && (
+        <>
+          {/* Rectangular hyperbola: P*Q = const. Drawn as a smooth path. */}
+          <path
+            d={`M ${pad + 8} ${pad + 6} C ${pad + 20} ${H - pad - 30}, ${W - pad - 40} ${H - pad - 6}, ${W - pad - 4} ${H - pad - 2}`}
+            fill="none"
+            stroke={demandColor}
+            strokeWidth="3"
+          />
+          <text x={W - pad - 4} y={H - pad - 6} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+        </>
+      )}
+
+      {type === 'inelastic' && (
+        <>
+          <line x1={pad} y1={pad + 4} x2={W - pad - 40} y2={H - pad} stroke={demandColor} strokeWidth="3" />
+          <text x={W - pad - 44} y={H - pad - 5} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+        </>
+      )}
+
+      {type === 'perfectly-inelastic' && (
+        <>
+          <line x1={pad + 55} y1={pad} x2={pad + 55} y2={H - pad} stroke={demandColor} strokeWidth="3" />
+          <text x={pad + 62} y={pad + 12} fontSize="11" fill={demandColor} fontWeight="800">D</text>
+        </>
+      )}
     </svg>
   );
 }
@@ -279,27 +391,49 @@ export default function ElasticityPage({ onNavigate }: Props) {
           </div>
         </div>
 
-        {/* Three examples */}
+        {/* Five types of PED */}
         <div>
-          <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Three Types of Demand</h2>
-          <p className="text-navy-600 mb-6">The steeper the demand curve, the less responsive buyers are to price.</p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {EXAMPLES.map((ex) => {
-              const Icon = ex.icon;
-              const r = calcElasticityMidpoint(ex.p1, ex.p2, ex.q1, ex.q2);
+          <h2 className="text-2xl font-extrabold text-navy-900 mb-2">Types of Price Elasticity of Demand (PED)</h2>
+          <p className="text-navy-600 mb-6 max-w-3xl leading-relaxed">
+            Based on how responsive buyers are to a price change, demand is classified into five
+            types. Each graph below shows quantity demanded on the x-axis and price on the y-axis
+            <span className="text-navy-400"> (upGrad, 2026)</span>.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PED_TYPES.map((t) => {
+              const Icon = t.icon;
+              const ExIcon = t.exampleIcon;
+              const accentText = t.color === 'demand' ? 'text-demand-600' : t.color === 'supply' ? 'text-supply-600' : 'text-navy-700';
+              const accentBg = t.color === 'demand' ? 'bg-demand-500/10' : t.color === 'supply' ? 'bg-supply-500/10' : 'bg-navy-100';
               return (
-                <div key={ex.label} className="card p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Icon size={20} className={ex.color === 'demand' ? 'text-demand-600' : ex.color === 'supply' ? 'text-supply-600' : 'text-navy-700'} />
-                    <h3 className="font-display font-bold text-lg text-navy-900">{ex.label}</h3>
+                <div key={t.type} className="card p-6 flex flex-col">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon size={18} className={accentText} />
+                    <h3 className="font-display font-bold text-base text-navy-900 leading-tight">{t.label}</h3>
                   </div>
-                  <ElasticityVisual type={ex.label.includes('Elastic') && ex.label.startsWith('Elastic') ? 'elastic' : ex.label.includes('Inelastic') ? 'inelastic' : 'unit'} />
-                  <p className="text-sm text-navy-600 mt-2">
-                    |E| = {r?.absElasticity.toFixed(2)} — {r?.classification === 'elastic' ? 'buyers are very responsive' : r?.classification === 'inelastic' ? 'buyers are not very responsive' : 'proportional response'}
-                  </p>
+                  <span className={`label-tag ${accentBg} ${accentText} mb-3 w-fit`}>{t.ped}</span>
+                  <ElasticityVisual type={t.type} />
+                  <p className="text-sm text-navy-700 leading-relaxed mt-3 mb-3">{t.blurb}</p>
+                  <div className="mt-auto rounded-lg bg-navy-50/70 px-4 py-3">
+                    <p className="text-xs font-bold text-navy-900 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                      <ExIcon size={13} className={accentText} /> Example
+                    </p>
+                    <p className="text-sm text-navy-600 leading-relaxed">{t.example}</p>
+                  </div>
                 </div>
               );
             })}
+            {/* References link card fills the last grid cell on lg */}
+            <div className="card p-6 bg-navy-900 text-cream-50 flex flex-col justify-center">
+              <p className="text-xs text-cream-100/60 font-semibold uppercase tracking-wider mb-2">Classification rule</p>
+              <p className="text-sm text-cream-100/80 leading-relaxed">
+                The further the demand curve sits from a vertical line, the more elastic it is.
+                A horizontal curve is perfectly elastic; a vertical curve is perfectly inelastic.
+              </p>
+              <p className="text-xs text-cream-100/40 mt-4">
+                See the references at the bottom of this page for the sources cited above.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -629,6 +763,43 @@ export default function ElasticityPage({ onNavigate }: Props) {
           (e.g. life-saving medicine) assuming other factors remain constant. Substitutes, necessity, market
           definition, and time horizon all all affect elasticity. Meanwhile, change in income also influences demand. Income elasticity measures how changes in income affect quantity demanded in a market. Based on this relationship, goods can be classified as either normal or inferior.
         </KeyTakeaway>
+
+        {/* References */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <BookOpen size={20} className="text-navy-700" />
+            <h2 className="text-xl font-extrabold text-navy-900">References</h2>
+          </div>
+          <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
+            <li>
+              <p>Mankiw, N. G., &amp; Taylor, M. P. (2020). <em>Economics</em> (5th ed.). Cengage Learning.</p>
+            </li>
+            <li>
+              <p>Investopedia. <em>Demand Curve</em>. Available at:</p>
+              <a
+                href="https://www.investopedia.com/terms/d/demand-curve.asp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                investopedia.com/terms/d/demand-curve.asp
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+            <li>
+              <p>upGrad. (2026, August 10). <em>A complete guide on price elasticity of demand with examples</em>. upGrad blog. Available at:</p>
+              <a
+                href="https://www.upgrad.com/blog/price-elasticity-of-demand/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                upgrad.com/blog/price-elasticity-of-demand/
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+          </ol>
+        </div>
       </div>
     </>
   );

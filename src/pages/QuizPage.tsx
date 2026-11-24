@@ -11,49 +11,89 @@ interface Props {
 type Phase = 'intro' | 'asking' | 'answered' | 'done';
 
 function MiniQuizGraph({ type }: { type: string }) {
-  const W = 200, H = 130, pad = 18;
+  const W = 220, H = 150, pad = 22;
+  const axisColor = '#3a4a66';
+  const demandColor = '#3b6fd6';
+  const supplyColor = '#d97026';
+
   const render = () => {
     switch (type) {
+      // Q3: supply shifts right. Q on x, P on y. Two upward supply curves S and S1 (S1 to the right), demand D downward.
       case 'shift-right':
         return (
           <>
-            <line x1={pad} y1={25} x2={W - pad} y2={H - pad} stroke="#3b6fd6" strokeWidth="2.5" />
-            <line x1={pad} y1={50} x2={W - pad - 20} y2={H - pad + 10} stroke="#d97026" strokeWidth="2" opacity="0.35" />
-            <line x1={pad + 25} y1={35} x2={W - pad + 5} y2={H - pad - 5} stroke="#d97026" strokeWidth="2.5" />
-            <text x={W - pad - 4} y={H - pad - 4} fontSize="10" fill="#b3561b" fontWeight="800">S'</text>
+            {/* Demand: downward sloping from left to right */}
+            <line x1={pad} y1={pad + 8} x2={W - pad} y2={H - pad} stroke={demandColor} strokeWidth="2.5" />
+            <text x={W - pad - 2} y={H - pad - 4} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+            {/* Supply S (original) */}
+            <line x1={pad} y1={H - pad - 8} x2={W - pad - 30} y2={pad + 20} stroke={supplyColor} strokeWidth="2.5" />
+            <text x={W - pad - 34} y={pad + 18} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800">S</text>
+            {/* Supply S1 (shifted right) */}
+            <line x1={pad + 35} y1={H - pad - 8} x2={W - pad + 2} y2={pad + 20} stroke={supplyColor} strokeWidth="2.5" opacity="0.6" />
+            <text x={W - pad - 2} y={pad + 18} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800" opacity="0.7">S₁</text>
+            {/* shift arrow */}
+            <path d={`M ${pad + 70} ${H - pad - 30} L ${pad + 100} ${H - pad - 30}`} stroke="#22365e" strokeWidth="1.5" fill="none" markerEnd="url(#arrowQ3)" />
+            <defs>
+              <marker id="arrowQ3" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                <path d="M 0 0 L 6 3 L 0 6 z" fill="#22365e" />
+              </marker>
+            </defs>
           </>
         );
       case 'surplus':
         return (
           <>
-            <line x1={pad} y1={25} x2={W - pad} y2={H - pad} stroke="#3b6fd6" strokeWidth="2.5" />
-            <line x1={pad} y1={H - pad} x2={W - pad} y2={20} stroke="#d97026" strokeWidth="2.5" />
+            <line x1={pad} y1={pad + 8} x2={W - pad} y2={H - pad} stroke={demandColor} strokeWidth="2.5" />
+            <line x1={pad} y1={H - pad - 8} x2={W - pad} y2={pad + 18} stroke={supplyColor} strokeWidth="2.5" />
             <line x1={pad} y1={45} x2={W - pad} y2={45} stroke="#d99a26" strokeWidth="2" strokeDasharray="4 3" />
             <rect x={xScaleQ(45)} y={42} width={Math.abs(xScaleQ(75) - xScaleQ(45))} height={6} fill="#d99a26" opacity="0.4" />
+            <text x={W - pad - 2} y={H - pad - 4} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+            <text x={W - pad - 2} y={pad + 16} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800">S</text>
           </>
         );
-      case 'shortage':
+      // Q6: shortage — shade small triangle under supply/demand above the red dotted line
+      case 'shortage': {
+        // Approx intersection of supply and demand
+        const eqX = 105, eqY = 70;
+        // red dotted price line below equilibrium
+        const priceLineY = 95;
+        // Qs at priceLineY (on supply curve going from bottom-left up to top-right)
+        // supply: (pad, H-pad-8) to (W-pad, pad+18). param t: y = (H-pad-8) + t*((pad+18)-(H-pad-8))
+        const supplyT = (priceLineY - (H - pad - 8)) / ((pad + 18) - (H - pad - 8));
+        const supplyX = pad + supplyT * ((W - pad) - pad);
+        // Qd at priceLineY (on demand curve going from top-left down to bottom-right)
+        const demandT = (priceLineY - (pad + 8)) / ((H - pad) - (pad + 8));
+        const demandX = pad + demandT * ((W - pad) - pad);
+        // triangle vertices: (eqX, eqY), (supplyX, priceLineY), (demandX, priceLineY)
+        const triPoints = `${eqX},${eqY} ${supplyX},${priceLineY} ${demandX},${priceLineY}`;
         return (
           <>
-            <line x1={pad} y1={25} x2={W - pad} y2={H - pad} stroke="#3b6fd6" strokeWidth="2.5" />
-            <line x1={pad} y1={H - pad} x2={W - pad} y2={20} stroke="#d97026" strokeWidth="2.5" />
-            <line x1={pad} y1={85} x2={W - pad} y2={85} stroke="#d9523a" strokeWidth="2" strokeDasharray="4 3" />
+            <line x1={pad} y1={pad + 8} x2={W - pad} y2={H - pad} stroke={demandColor} strokeWidth="2.5" />
+            <line x1={pad} y1={H - pad - 8} x2={W - pad} y2={pad + 18} stroke={supplyColor} strokeWidth="2.5" />
+            <line x1={pad} y1={priceLineY} x2={W - pad} y2={priceLineY} stroke="#d9523a" strokeWidth="2" strokeDasharray="4 3" />
+            <polygon points={triPoints} fill="#d9523a" opacity="0.18" stroke="#d9523a" strokeWidth="1" strokeDasharray="2 2" />
+            <text x={W - pad - 2} y={H - pad - 4} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+            <text x={W - pad - 2} y={pad + 16} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800">S</text>
           </>
         );
+      }
+      // Q9: elasticity steep demand
       case 'elastic-steep':
         return (
           <>
-            <line x1={pad + 30} y1={pad} x2={pad + 35} y2={H - pad} stroke="#3b6fd6" strokeWidth="2.5" />
-            <text x={pad + 45} y={pad + 12} fontSize="10" fill="#2a54b0" fontWeight="800">D (steep)</text>
+            <line x1={pad + 40} y1={pad} x2={pad + 48} y2={H - pad} stroke={demandColor} strokeWidth="2.5" />
+            <text x={pad + 56} y={pad + 12} fontSize="11" fill={demandColor} fontWeight="800">D (steep)</text>
           </>
         );
       case 'ceiling-binding':
         return (
           <>
-            <line x1={pad} y1={25} x2={W - pad} y2={H - pad} stroke="#3b6fd6" strokeWidth="2.5" />
-            <line x1={pad} y1={H - pad} x2={W - pad} y2={20} stroke="#d97026" strokeWidth="2.5" />
-            <line x1={pad} y1={75} x2={W - pad} y2={75} stroke="#d9523a" strokeWidth="2" strokeDasharray="4 3" />
-            <text x={W - pad - 4} y={72} textAnchor="end" fontSize="9" fill="#d9523a" fontWeight="600">Ceiling</text>
+            <line x1={pad} y1={pad + 8} x2={W - pad} y2={H - pad} stroke={demandColor} strokeWidth="2.5" />
+            <line x1={pad} y1={H - pad - 8} x2={W - pad} y2={pad + 18} stroke={supplyColor} strokeWidth="2.5" />
+            <line x1={pad} y1={90} x2={W - pad} y2={90} stroke="#d9523a" strokeWidth="2" strokeDasharray="4 3" />
+            <text x={W - pad - 4} y={86} textAnchor="end" fontSize="9" fill="#d9523a" fontWeight="600">Ceiling</text>
+            <text x={W - pad - 2} y={H - pad - 4} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+            <text x={W - pad - 2} y={pad + 16} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800">S</text>
           </>
         );
       default:
@@ -62,9 +102,12 @@ function MiniQuizGraph({ type }: { type: string }) {
   };
   function xScaleQ(q: number) { return pad + (q / 100) * (W - pad * 2); }
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-xs mx-auto">
-      <line x1={pad} y1={pad} x2={pad} y2={H - pad} stroke="#3a4a66" strokeWidth="1.5" />
-      <line x1={pad} y1={H - pad} x2={W - pad} y2={H - pad} stroke="#3a4a66" strokeWidth="1.5" />
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full max-w-sm mx-auto">
+      {/* axes: P (y), Q (x) */}
+      <line x1={pad} y1={pad} x2={pad} y2={H - pad} stroke={axisColor} strokeWidth="1.5" />
+      <line x1={pad} y1={H - pad} x2={W - pad} y2={H - pad} stroke={axisColor} strokeWidth="1.5" />
+      <text x={5} y={pad + 5} fontSize="11" fill={axisColor} fontWeight="700">P</text>
+      <text x={W - pad - 2} y={H - 6} fontSize="11" fill={axisColor} fontWeight="700">Q</text>
       {render()}
     </svg>
   );
