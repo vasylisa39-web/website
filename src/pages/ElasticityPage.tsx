@@ -783,21 +783,13 @@ export default function ElasticityPage({ onNavigate }: Props) {
           </div>
           <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
             <li>
-              <p>Mankiw, N. G., &amp; Taylor, M. P. (2020). <em>Economics</em> (5th ed.). Cengage Learning.</p>
-            </li>
-            <li>
-              <p>Investopedia. <em>Demand Curve</em>. Available at:</p>
-              <a
-                href="https://www.investopedia.com/terms/d/demand-curve.asp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
-              >
-                investopedia.com/terms/d/demand-curve.asp
-                <ExternalLink size={13} className="shrink-0" />
-              </a>
-            </li>
-            <li>
+               <p>
+        Mankiw, N. Gregory, &amp; Taylor, Mark P. (2020).
+        <em> Economics </em> (5th ed.). Cengage Learning.
+      </p>
+    </li>
+    <li>
+      <p>
               <p>upGrad. (2026, August 10). <em>A complete guide on price elasticity of demand with examples</em>. upGrad blog. Available at:</p>
               <a
                 href="https://www.upgrad.com/blog/price-elasticity-of-demand/"
