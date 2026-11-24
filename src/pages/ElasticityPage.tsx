@@ -438,8 +438,7 @@ export default function ElasticityPage({ onNavigate }: Props) {
             <div className="card p-6 bg-navy-900 text-cream-50 flex flex-col justify-center">
               <p className="text-xs text-cream-100/60 font-semibold uppercase tracking-wider mb-2">Classification rule</p>
               <p className="text-sm text-cream-100/80 leading-relaxed">
-                The further the demand curve sits from a vertical line, the more elastic it is.
-                A horizontal curve is perfectly elastic; a vertical curve is perfectly inelastic.
+                The flatter the demand curve, the more elastic demand is. A horizontal demand curve is perfectly elastic, while a vertical demand curve is perfectly inelastic.
               </p>
               <p className="text-xs text-cream-100/40 mt-4">
                 See the references at the bottom of this page for the sources cited above.
