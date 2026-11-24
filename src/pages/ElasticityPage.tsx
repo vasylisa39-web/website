@@ -189,6 +189,23 @@ function ElasticityVisual({ type }: { type: PEDType }) {
   const axisColor = '#3a4a66';
   const demandColor = '#3b6fd6';
 
+  // Rectangular hyperbola (P×Q = constant) for unitary elastic demand.
+  // Approaches both axes asymptotically but never touches either.
+  const unitPath = (() => {
+    const plotBottom = H - pad;
+    const k = 1400;
+    const pts: string[] = [];
+    for (let px = 16; px <= 132; px += 3) {
+      const py = k / px;
+      const svgX = pad + px;
+      const svgY = plotBottom - py;
+      if (svgY >= pad + 2) {
+        pts.push(`${svgX.toFixed(1)} ${svgY.toFixed(1)}`);
+      }
+    }
+    return pts.length ? `M ${pts.join(' L ')}` : '';
+  })();
+
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-32">
       {/* axes: P (y), Q (x) */}
@@ -213,14 +230,8 @@ function ElasticityVisual({ type }: { type: PEDType }) {
 
       {type === 'unit' && (
         <>
-          {/* Rectangular hyperbola: P*Q = const. Drawn as a smooth path. */}
-          <path
-            d={`M ${pad + 8} ${pad + 6} C ${pad + 20} ${H - pad - 30}, ${W - pad - 40} ${H - pad - 6}, ${W - pad - 4} ${H - pad - 2}`}
-            fill="none"
-            stroke={demandColor}
-            strokeWidth="3"
-          />
-          <text x={W - pad - 4} y={H - pad - 6} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
+          <path d={unitPath} fill="none" stroke={demandColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          <text x={W - pad - 2} y={H - pad - 8} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
         </>
       )}
 

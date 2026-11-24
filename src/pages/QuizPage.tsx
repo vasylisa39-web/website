@@ -51,27 +51,33 @@ function MiniQuizGraph({ type }: { type: string }) {
             <text x={W - pad - 2} y={pad + 16} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800">S</text>
           </>
         );
-      // Q6: shortage — shade small triangle under supply/demand above the red dotted line
+      // Q6: shortage — shade triangle bounded by supply (left), demand (right), and the price line (bottom).
+      // Apex is the actual intersection of the two curves.
       case 'shortage': {
-        // Approx intersection of supply and demand
-        const eqX = 105, eqY = 70;
-        // red dotted price line below equilibrium
-        const priceLineY = 95;
-        // Qs at priceLineY (on supply curve going from bottom-left up to top-right)
-        // supply: (pad, H-pad-8) to (W-pad, pad+18). param t: y = (H-pad-8) + t*((pad+18)-(H-pad-8))
-        const supplyT = (priceLineY - (H - pad - 8)) / ((pad + 18) - (H - pad - 8));
-        const supplyX = pad + supplyT * ((W - pad) - pad);
-        // Qd at priceLineY (on demand curve going from top-left down to bottom-right)
-        const demandT = (priceLineY - (pad + 8)) / ((H - pad) - (pad + 8));
-        const demandX = pad + demandT * ((W - pad) - pad);
-        // triangle vertices: (eqX, eqY), (supplyX, priceLineY), (demandX, priceLineY)
-        const triPoints = `${eqX},${eqY} ${supplyX},${priceLineY} ${demandX},${priceLineY}`;
+        // Demand: (pad, pad+8) -> (W-pad, H-pad)
+        // Supply: (pad, H-pad-8) -> (W-pad, pad+18)
+        // Solve intersection: t = s, (pad+8) + t*((H-pad)-(pad+8)) = (H-pad-8) + t*((pad+18)-(H-pad-8))
+        const dY0 = pad + 8, dY1 = H - pad;
+        const sY0 = H - pad - 8, sY1 = pad + 18;
+        const span = W - pad - pad;
+        const tEq = (sY0 - dY0) / ((dY1 - dY0) - (sY1 - sY0));
+        const eqX = pad + tEq * span;
+        const eqY = dY0 + tEq * (dY1 - dY0);
+        // price line clearly below equilibrium
+        const priceLineY = Math.min(H - pad - 6, eqY + 22);
+        // Qs: on supply at priceLineY
+        const sT = (priceLineY - sY0) / (sY1 - sY0);
+        const supplyX = pad + sT * span;
+        // Qd: on demand at priceLineY
+        const dT = (priceLineY - dY0) / (dY1 - dY0);
+        const demandX = pad + dT * span;
+        const triPoints = `${eqX.toFixed(1)},${eqY.toFixed(1)} ${supplyX.toFixed(1)},${priceLineY} ${demandX.toFixed(1)},${priceLineY}`;
         return (
           <>
-            <line x1={pad} y1={pad + 8} x2={W - pad} y2={H - pad} stroke={demandColor} strokeWidth="2.5" />
-            <line x1={pad} y1={H - pad - 8} x2={W - pad} y2={pad + 18} stroke={supplyColor} strokeWidth="2.5" />
+            <line x1={pad} y1={dY0} x2={W - pad} y2={dY1} stroke={demandColor} strokeWidth="2.5" />
+            <line x1={pad} y1={sY0} x2={W - pad} y2={sY1} stroke={supplyColor} strokeWidth="2.5" />
             <line x1={pad} y1={priceLineY} x2={W - pad} y2={priceLineY} stroke="#d9523a" strokeWidth="2" strokeDasharray="4 3" />
-            <polygon points={triPoints} fill="#d9523a" opacity="0.18" stroke="#d9523a" strokeWidth="1" strokeDasharray="2 2" />
+            <polygon points={triPoints} fill="#d9523a" opacity="0.2" />
             <text x={W - pad - 2} y={H - pad - 4} textAnchor="end" fontSize="11" fill={demandColor} fontWeight="800">D</text>
             <text x={W - pad - 2} y={pad + 16} textAnchor="end" fontSize="11" fill={supplyColor} fontWeight="800">S</text>
           </>
