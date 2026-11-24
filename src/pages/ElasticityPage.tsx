@@ -785,7 +785,9 @@ export default function ElasticityPage({ onNavigate }: Props) {
             <li>
               <p>Mankiw, N. Gregory, &amp; Taylor, Mark P. (2020).
         <em> Economics </em> (5th ed.). Cengage Learning.</p>
-            
+            </li>
+            <li>
+
               <p>upGrad. (2026, August 10). <em>A complete guide on price elasticity of demand with examples</em>. upGrad blog. Available at:</p>
               <a
                 href="https://www.upgrad.com/blog/price-elasticity-of-demand/"
