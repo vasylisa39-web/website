@@ -786,7 +786,7 @@ export default function ElasticityPage({ onNavigate }: Props) {
         <em> Economics </em> (5th ed.). Cengage Learning.</p>
             </li>
             <li>
-              <p>upGrad. (2026, August 10). <em>A complete guide on price elasticity of demand with examples.</p>
+              <p>upGrad. (2026, August 10). <em>A complete guide on price elasticity of demand with examples</em>.</p>
               <a
                 href="https://www.upgrad.com/blog/price-elasticity-of-demand/"
                 target="_blank"
