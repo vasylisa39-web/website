@@ -209,12 +209,12 @@ export default function EquilibriumPage({ onNavigate }: Props) {
             <h2 className="text-2xl font-extrabold text-navy-900">Key Principles of Equilibrium</h2>
           </div>
           <ul className="space-y-3 text-sm text-navy-700 leading-relaxed">
-            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium is a <strong>state of rest</strong> in which the quantity demanded and quantity supplied of a good in a market are the same at a certain price <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium is a <strong>state of rest</strong> in which the quantity demanded and quantity supplied of a good in a market are the same at a certain price <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 49)</span>.</span></li>
             <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium or <strong>market price</strong> is the price where quantity demanded is equal to the quantity supplied.</span></li>
             <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span><strong>Equilibrium quantity</strong> is the quantity bought and sold at the equilibrium price.</span></li>
             <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>In a market, the relationship between supply and demand applies <strong>pressure on price</strong>.</span></li>
-            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>If supply is greater than demand (surplus) or demand is greater than supply (shortage), there is pressure on price to change as a way of <strong>restoring equilibrium</strong> within a market <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></li>
-            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium occurs when the amount sellers are willing and able to supply is the same as the amount buyers are willing and able to buy. It is considered ideal in a competitive market but can be difficult to achieve due to varying factors <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>If supply is greater than demand (surplus) or demand is greater than supply (shortage), there is pressure on price to change as a way of <strong>restoring equilibrium</strong> within a market <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 49)</span>.</span></li>
+            <li className="flex gap-3"><CheckCircle2 size={18} className="text-success-600 mt-0.5 shrink-0" /> <span>Equilibrium occurs when the amount sellers are willing and able to supply is the same as the amount buyers are willing and able to buy. It is considered ideal in a competitive market but can be difficult to achieve due to varying factors <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 49)</span>.</span></li>
           </ul>
         </div>
 
@@ -232,11 +232,11 @@ export default function EquilibriumPage({ onNavigate }: Props) {
 
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="space-y-3 text-sm text-navy-700 leading-relaxed">
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>A <strong>surplus</strong> occurs when the amount sellers are willing and able to sell outweighs the amount buyers wish to buy at a given price <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>A <strong>surplus</strong> occurs when the amount sellers are willing and able to sell outweighs the amount buyers wish to buy at a given price <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
               <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Sellers find themselves unable to sell the full amount they are willing to sell — known as a <strong>surplus</strong> or <strong>excess supply</strong>.</span></p>
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Due to increasing excess stocks, sellers are tempted to <strong>decrease prices</strong> to boost demand <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Due to increasing excess stocks, sellers are tempted to <strong>decrease prices</strong> to boost demand <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
               <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Lower prices lead some consumers to purchase more, causing a <strong>movement along the demand curve</strong> until an equilibrium point is reached.</span></p>
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Some sellers reduce the amount they are willing to sell, triggering a <strong>movement along the supply curve</strong>. This helps decrease excess stock but does not increase sales due to the Law of Demand <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Some sellers reduce the amount they are willing to sell, triggering a <strong>movement along the supply curve</strong>. This helps decrease excess stock but does not increase sales due to the Law of Demand <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
               <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-warning-500 mt-2 shrink-0" /> <span>Prices can continue to fall until the market reaches equilibrium — the desired state for a competitive market.</span></p>
             </div>
 
@@ -271,7 +271,7 @@ export default function EquilibriumPage({ onNavigate }: Props) {
               "The effect on price and demand bought and sold depend on whether the demand curve or
               supply curve shifted in the first place (or both). This analysis of markets is referred to as
               <strong> comparative statics</strong>, because we are comparing one initial static equilibrium
-              with another once market forces have worked their way through." — Mankiw, Taylor, 2026
+              with another once market forces have worked their way through." — Mankiw &amp; Taylor, 2026
             </p>
           </div>
         </div>
@@ -290,11 +290,11 @@ export default function EquilibriumPage({ onNavigate }: Props) {
 
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="space-y-3 text-sm text-navy-700 leading-relaxed">
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Shortages occur when the amount consumers are willing and able to buy is greater than the amount sellers are willing and able to supply — demand is not being met <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>If there are too many buyers for too few goods, sellers may <strong>increase prices</strong> as it increases revenues, and due to excess demand they are at decreased risk of a supplier surplus <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>As price rises, some consumers will no longer be willing or able to purchase the good, triggering a <strong>movement along the demand curve</strong> <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Shortages occur when the amount consumers are willing and able to buy is greater than the amount sellers are willing and able to supply — demand is not being met <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>If there are too many buyers for too few goods, sellers may <strong>increase prices</strong> as it increases revenues, and due to excess demand they are at decreased risk of a supplier surplus <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>As price rises, some consumers will no longer be willing or able to purchase the good, triggering a <strong>movement along the demand curve</strong> <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
               <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Rising prices may tempt some producers to produce more as it is more profitable, so <strong>supply increases</strong>. This continues until an equilibrium point is reached.</span></p>
-              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Individual buyers and sellers are unaware they are forces of change, but the combined actions of everyone in a market can <strong>automatically adjust</strong> the market toward an equilibrium position <span className="text-navy-400">(Mankiw, Taylor, 2026)</span>.</span></p>
+              <p className="flex gap-3"><span className="w-1.5 h-1.5 rounded-full bg-error-500 mt-2 shrink-0" /> <span>Individual buyers and sellers are unaware they are forces of change, but the combined actions of everyone in a market can <strong>automatically adjust</strong> the market toward an equilibrium position <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 50)</span>.</span></p>
             </div>
 
             {/* PS5 case study */}
@@ -358,7 +358,9 @@ export default function EquilibriumPage({ onNavigate }: Props) {
           </div>
           <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
             <li>
-              <p>Cengage Learning, N. Gregory Mankiw and Mark P. Taylor, <em>Economics</em>, 7th edition.</p>
+              <p>
+                Mankiw, N. G., &amp; Taylor, M. P. (2020). <em>Economics</em> (5th ed.). Cengage Learning.
+              </p>
             </li>
             <li>
               <p>
