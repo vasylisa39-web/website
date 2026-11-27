@@ -341,7 +341,7 @@ export default function ElasticityPage({ onNavigate }: Props) {
               Because price and quantity demanded usually move in opposite directions, elasticity is
               typically <strong>negative</strong>. Economists use the <strong>absolute value</strong> (|E|) for
               classification, so they can say "elastic" or "inelastic" without the sign getting in the way 
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 55)</span>.
+              <span className="text-navy-400"> (Mankiw &amp; Taylor, 2020, p. 55)</span>.
             </p>
           </div>
 
