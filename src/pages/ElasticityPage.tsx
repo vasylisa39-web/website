@@ -118,6 +118,7 @@ const DETERMINANTS = [
     title: 'Substitutes',
     question: 'Are there many substitutes for this product?',
     rule: 'More available substitutes → more elastic. Limited substitutes → inelastic.',
+    citation: '(Mankiw & Taylor, 2020, p. 54)',
     example: {
       heading: 'Example: Cereal',
       body: 'There are many alternatives for a similar type of cereal — Cocopops from Kellogg\'s and CocoSnaps from Tesco. With so many stand-ins, buyers easily switch when prices move, making cereal elastic.',
@@ -129,6 +130,7 @@ const DETERMINANTS = [
     title: 'Necessity',
     question: 'Is this service necessary for me?',
     rule: 'Luxuries are elastic. Necessities are inelastic.',
+    citation: '(Mankiw & Taylor, 2020, p. 54)',
     example: {
       heading: 'Example: Food delivery',
       body: 'Food itself is essential for survival, so it is inelastic. But having fast food delivered to you by services like Deliveroo is a luxury — that extra convenience makes food delivery elastic.',
@@ -140,6 +142,7 @@ const DETERMINANTS = [
     title: 'Market Definition',
     question: 'A specific product I can replace — but what about the broad category?',
     rule: 'The more narrowly the market is defined, the more elastic it tends to become.',
+    citation: '(Mankiw & Taylor, 2020, p. 54)',
     example: {
       heading: 'Example: Jacket vs. Leather Jacket',
       body: 'A jacket is essential to survive the Irish weather, so the broad category is inelastic. But leather jackets are a specific sub-category: if their price rises, buyers switch to a different style of jacket. That makes leather jackets elastic.',
@@ -151,6 +154,7 @@ const DETERMINANTS = [
     title: 'Time Horizon',
     question: 'Will the elasticity of this product change in the future?',
     rule: 'Demand is more elastic in the long run as consumers adapt.',
+    citation: '(Mankiw & Taylor, 2020, p. 54)',
     example: {
       heading: 'Example: Store-bought vs. home-grown vegetables',
       body: 'If vegetable prices suddenly rise, immediate demand stays high — inelastic in the short run. Over time, consumers adapt by growing their own vegetables in the garden, so store-bought vegetables become elastic in the long run.',
@@ -327,7 +331,8 @@ export default function ElasticityPage({ onNavigate }: Props) {
             <h3 className="font-display font-bold text-xl text-navy-900 mb-3">What Is Price Elasticity of Demand?</h3>
             <p className="text-navy-700 leading-relaxed mb-4">
               Price elasticity of demand measures how much the quantity demanded changes when price
-              changes by one percent. It tells us how <em>responsive</em> buyers are.
+              changes by one percent. It tells us how <em>responsive</em> buyers are
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 53)</span>.
             </p>
             <div className="formula">
               E<sub>d</sub> = % change in quantity demanded ÷ % change in price
@@ -335,7 +340,8 @@ export default function ElasticityPage({ onNavigate }: Props) {
             <p className="text-sm text-navy-600 leading-relaxed">
               Because price and quantity demanded usually move in opposite directions, elasticity is
               typically <strong>negative</strong>. Economists use the <strong>absolute value</strong> (|E|) for
-              classification, so they can say "elastic" or "inelastic" without the sign getting in the way.
+              classification, so they can say "elastic" or "inelastic" without the sign getting in the way
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 55)</span>.
             </p>
           </div>
 
@@ -350,7 +356,8 @@ export default function ElasticityPage({ onNavigate }: Props) {
               %ΔP = (P₂ − P₁) ÷ [(P₁ + P₂) ÷ 2] × 100
             </div>
             <p className="text-sm text-navy-600 leading-relaxed">
-              This avoids the problem where elasticity differs depending on which point you start from.
+              This avoids the problem where elasticity differs depending on which point you start from
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 55-56)</span>.
             </p>
           </div>
         </div>
@@ -685,7 +692,9 @@ export default function ElasticityPage({ onNavigate }: Props) {
                     <h3 className="font-display font-bold text-lg text-navy-900">{d.title}</h3>
                   </div>
                   <p className="text-sm text-navy-500 italic mb-2">{d.question}</p>
-                  <p className="text-sm text-navy-700 leading-relaxed mb-4">{d.rule}</p>
+                  <p className="text-sm text-navy-700 leading-relaxed mb-4">
+                    {d.rule} <span className="text-navy-400">{d.citation}</span>
+                  </p>
                   <div className="mt-auto rounded-xl bg-navy-50/70 px-4 py-3">
                     <p className="text-xs font-bold text-navy-900 uppercase tracking-wider mb-1">{d.example.heading}</p>
                     <p className="text-sm text-navy-600 leading-relaxed">{d.example.body}</p>
@@ -710,7 +719,8 @@ export default function ElasticityPage({ onNavigate }: Props) {
 
           <p className="text-navy-700 leading-relaxed mb-6 max-w-3xl">
             Goods can be categorised into <strong>Normal Goods</strong> and <strong>Inferior Goods</strong>,
-            depending on how demand responds to a change in income.
+            depending on how demand responds to a change in income
+            <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 61)</span>.
           </p>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -721,7 +731,7 @@ export default function ElasticityPage({ onNavigate }: Props) {
               </div>
               <p className="text-sm text-navy-700 leading-relaxed mb-4">
                 Products or services for which quantity demanded <strong>increases</strong> as
-                customers' income rises.
+                customers' income rises <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 61)</span>.
               </p>
               <div className="rounded-lg bg-success-400/10 px-4 py-3">
                 <p className="text-xs font-bold text-success-600 uppercase tracking-wider mb-1 flex items-center gap-1.5">
@@ -741,7 +751,8 @@ export default function ElasticityPage({ onNavigate }: Props) {
               </div>
               <p className="text-sm text-navy-700 leading-relaxed mb-4">
                 Products or services for which quantity demanded <strong>decreases</strong> as
-                customers' income rises — consumers move to higher-quality products they can now afford.
+                customers' income rises — consumers move to higher-quality products they can now afford
+                <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 61)</span>.
               </p>
               <div className="rounded-lg bg-supply-500/10 px-4 py-3">
                 <p className="text-xs font-bold text-supply-600 uppercase tracking-wider mb-1 flex items-center gap-1.5">
@@ -760,18 +771,21 @@ export default function ElasticityPage({ onNavigate }: Props) {
         <div className="space-y-3">
           <h3 className="font-display font-bold text-lg text-navy-900">Common Mistakes</h3>
           <Collapsible title='"Elasticity is the slope of the demand curve."'>
-            <p>Related, but not the same. Slope depends on the units of the axes; elasticity is unit-free (a ratio of percentages). Two curves with the same slope can have different elasticities at different points.</p>
+            <p>Related, but not the same. Slope depends on the units of the axes; elasticity is unit-free (a ratio of percentages). Two curves with the same slope can have different elasticities at different points <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 60)</span>.</p>
           </Collapsible>
           <Collapsible title='"A steep demand curve always means inelastic demand."'>
-            <p>Often true visually, but strictly it depends on the scale of the axes. The midpoint formula is the reliable way to compute elasticity, not eyeballing steepness.</p>
+            <p>Often true visually, but strictly it depends on the scale of the axes. The midpoint formula is the reliable way to compute elasticity, not eyeballing steepness <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 56-57)</span>.</p>
           </Collapsible>
         </div>
 
         <KeyTakeaway>
           Elasticity measures how responsive buyers are to price. When |E| &gt; 1 demand is elastic
           (e.g. a mediocre coffee) and when |E| &lt; 1 demand is inelastic
-          (e.g. life-saving medicine) assuming other factors remain constant. Substitutes, necessity, market
-          definition, and time horizon all all affect elasticity. Meanwhile, change in income also influences demand. Income elasticity measures how changes in income affect quantity demanded in a market. Based on this relationship, goods can be classified as either normal or inferior.
+          (e.g. life-saving medicine) assuming other factors remain constant
+          <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 54-55)</span>. Substitutes, necessity, market
+          definition, and time horizon all all affect elasticity
+          <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 54)</span>. Meanwhile, change in income also influences demand. Income elasticity measures how changes in income affect quantity demanded in a market. Based on this relationship, goods can be classified as either normal or inferior
+          <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 61)</span>.
         </KeyTakeaway>
 
         {/* References */}
@@ -782,8 +796,9 @@ export default function ElasticityPage({ onNavigate }: Props) {
           </div>
           <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
             <li>
-              <p>Mankiw, N. Gregory, &amp; Taylor, Mark P. (2020).
-        <em> Economics </em> (5th ed.). Cengage Learning.</p>
+              <p>
+                Mankiw, N. G., &amp; Taylor, M. P. (2020). <em>Economics</em> (5th ed.). Cengage Learning.
+              </p>
             </li>
             <li>
               <p>upGrad. (2026, August 10). <em>A complete guide on price elasticity of demand with examples</em>.</p>
