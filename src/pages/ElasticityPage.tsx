@@ -332,7 +332,7 @@ export default function ElasticityPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               Price elasticity of demand measures how much the quantity demanded changes when price
               changes by one percent. It tells us how <em>responsive</em> buyers are
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 53)</span>.
+              <span className="text-navy-400"> (Mankiw &amp; Taylor, 2020, p. 53)</span>.
             </p>
             <div className="formula">
               E<sub>d</sub> = % change in quantity demanded ÷ % change in price
@@ -357,7 +357,7 @@ export default function ElasticityPage({ onNavigate }: Props) {
             </div>
             <p className="text-sm text-navy-600 leading-relaxed">
               This avoids the problem where elasticity differs depending on which point you start from
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 55-56)</span>.
+              <span className="text-navy-400"> (Mankiw &amp; Taylor, 2020, pp. 55-56)</span>.
             </p>
           </div>
         </div>
