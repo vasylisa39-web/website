@@ -112,7 +112,7 @@ export default function PriceControlsPage({ onNavigate }: Props) {
                 <p className="text-sm text-navy-800"><strong>Binding</strong> — prevents the market from reaching its equilibrium price, directly affecting the market outcome.</p>
               </div>
               <div className="rounded-lg bg-navy-50 px-3 py-2">
-                <p className="text-sm text-navy-800"><strong>Non-binding</strong> — the market still reaches equilibrium, so the outcome is unaffected. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 160-161)</span></p>
+                <p className="text-sm text-navy-800"><strong>Non-binding</strong> — the market still reaches equilibrium, so the outcome is unaffected <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 160-161)</span>.</p>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function PriceControlsPage({ onNavigate }: Props) {
               A legal <strong>maximum</strong> price. Sellers cannot charge more than this amount.
             </p>
             <div className="definition">
-              <p className="text-sm text-navy-800"><strong>Binding</strong> when set below the equilibrium price → creates a shortage. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 159-160)</span></p>
+              <p className="text-sm text-navy-800"><strong>Binding</strong> when set below the equilibrium price → creates a shortage <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 159-160)</span>.</p>
             </div>
           </div>
           <div className="card p-6 border-l-4 border-warning-500">
@@ -141,7 +141,7 @@ export default function PriceControlsPage({ onNavigate }: Props) {
               A legal <strong>minimum</strong> price. Sellers cannot charge less than this amount.
             </p>
             <div className="definition">
-              <p className="text-sm text-navy-800"><strong>Binding</strong> when set above the equilibrium price → creates a surplus. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 159, 161)</span></p>
+              <p className="text-sm text-navy-800"><strong>Binding</strong> when set above the equilibrium price → creates a surplus <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 159, 161)</span>.</p>
             </div>
           </div>
         </div>
@@ -255,14 +255,14 @@ export default function PriceControlsPage({ onNavigate }: Props) {
           <div className="card p-6">
             <h3 className="font-display font-bold text-lg text-navy-900 mb-3">Real-World Ceilings</h3>
             <ul className="space-y-3 text-sm text-navy-700">
-              <li><strong>Rent control</strong> — caps on monthly rent in cities like New York and Stockholm. Designed to protect tenants, but can reduce new construction and maintenance when binding. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 159-161)</span></li>
+              <li><strong>Rent control</strong> — caps on monthly rent in cities like New York and Stockholm. Designed to protect tenants, but can reduce new construction and maintenance when binding <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 159-161)</span>.</li>
               <li><strong>Price gouging laws</strong> — emergency caps on essentials like bottled water after disasters.</li>
             </ul>
           </div>
           <div className="card p-6">
             <h3 className="font-display font-bold text-lg text-navy-900 mb-3">Real-World Floors</h3>
             <ul className="space-y-3 text-sm text-navy-700">
-              <li><strong>Minimum wage</strong> — a floor on hourly wages. When above the market-clearing wage, it can create surplus labour (unemployment) in simple models. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 19)</span></li>
+              <li><strong>Minimum wage</strong> — a floor on hourly wages. When above the market-clearing wage, it can create surplus labour (unemployment) in simple models <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, p. 19)</span>.</li>
               <li><strong>Agricultural price supports</strong> — governments guarantee minimum prices for crops, sometimes buying the surplus.</li>
             </ul>
           </div>
@@ -328,10 +328,10 @@ export default function PriceControlsPage({ onNavigate }: Props) {
         <div className="space-y-3">
           <h3 className="font-display font-bold text-lg text-navy-900">Common Mistakes</h3>
           <Collapsible title='"A price ceiling always lowers the price consumers pay."'>
-            <p>Only if it is binding. A ceiling set above the equilibrium has no effect — the market already clears below it. The same logic applies to floors set below equilibrium. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 160-161)</span></p>
+            <p>Only if it is binding. A ceiling set above the equilibrium has no effect — the market already clears below it. The same logic applies to floors set below equilibrium <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 160-161)</span>.</p>
           </Collapsible>
           <Collapsible title='"Price controls are always bad / always good."'>
-            <p>The basic model shows shortages and surpluses, but real outcomes depend on market conditions, policy design, and goals. Economists debate trade-offs; the model helps you see them, not settle the debate. <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 161-163)</span></p>
+            <p>The basic model shows shortages and surpluses, but real outcomes depend on market conditions, policy design, and goals. Economists debate trade-offs; the model helps you see them, not settle the debate <span className="text-navy-400">(Mankiw &amp; Taylor, 2020, pp. 161-163)</span>.</p>
           </Collapsible>
         </div>
 

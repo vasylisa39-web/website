@@ -155,7 +155,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>
             </p>
             <div className="definition">
-              <p className="text-sm text-navy-800"><strong>Supply curve:</strong> shows the quantity sellers are willing and able to produce at each price. <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span></p>
+              <p className="text-sm text-navy-800"><strong>Supply curve:</strong> shows the quantity sellers are willing and able to produce at each price <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>.</p>
             </div>
           </div>
         </div>
@@ -329,7 +329,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               good or service.
             </p>
             <div className="definition">
-              <p className="text-sm text-navy-800">Allows businesses and economists a direct market analysis. <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span></p>
+              <p className="text-sm text-navy-800">Allows businesses and economists a direct market analysis <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>.</p>
             </div>
           </div>
 
@@ -357,7 +357,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
           <p className="text-sm text-navy-700 leading-relaxed">
             A <strong>demand schedule</strong> shows how much buyers are willing to consume at various
             prices, while a <strong>supply schedule</strong> shows the amount sellers are willing to
-            produce and sell at those same prices. <span className="text-navy-400">(Kenton, 2024)</span>
+            produce and sell at those same prices <span className="text-navy-400">(Kenton, 2024)</span>.
           </p>
         </div>
 
@@ -421,7 +421,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               </div>
               <p className="text-sm text-navy-700 leading-relaxed mb-4">
                 If the price of one good <strong>rises</strong>, there will be a <strong>rise in
-                demand</strong> for the other. <span className="text-navy-400">(Hayes, 2024)</span>
+                demand</strong> for the other <span className="text-navy-400">(Hayes, 2024)</span>.
               </p>
 
               <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Examples</p>
@@ -463,7 +463,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               </div>
               <p className="text-sm text-navy-700 leading-relaxed mb-4">
                 If the price of one good <strong>rises</strong>, there will be a <strong>decrease in
-                demand</strong> for the other. <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 39)</span>
+                demand</strong> for the other <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 39)</span>.
               </p>
 
               <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Examples</p>
