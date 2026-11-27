@@ -100,8 +100,8 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </h3>
             <p className="text-navy-700 leading-relaxed mb-4">
               <strong>Quantity demanded</strong> is the amount of a good that buyers are
-              <strong> willing and able</strong> to purchase at a given price.
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>
+              <strong> willing and able</strong> to purchase at a given price
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">
@@ -117,8 +117,8 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </h3>
             <p className="text-navy-700 leading-relaxed mb-4">
               <strong>Quantity supplied</strong> is the amount that sellers are
-              <strong> willing and able</strong> to sell at different prices.
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>
+              <strong> willing and able</strong> to sell at different prices
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">
@@ -137,8 +137,8 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </h3>
             <p className="text-navy-700 leading-relaxed mb-4">
               All else equal, as price rises, the <strong>quantity demanded</strong> falls. The demand
-              curve slopes downward because consumers buy less at higher prices.
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>
+              curve slopes downward because consumers buy less at higher prices
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800"><strong>Demand curve:</strong> shows the quantity buyers are willing and able to purchase at each price.</p>
@@ -151,8 +151,8 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </h3>
             <p className="text-navy-700 leading-relaxed mb-4">
               All else equal, as price rises, the <strong>quantity supplied</strong> rises. The supply
-              curve slopes upward because producers offer more at higher prices.
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>
+              curve slopes upward because producers offer more at higher prices
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800"><strong>Supply curve:</strong> shows the quantity sellers are willing and able to produce at each price <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>.</p>
