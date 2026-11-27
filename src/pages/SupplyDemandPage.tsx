@@ -101,7 +101,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               <strong>Quantity demanded</strong> is the amount of a good that buyers are
               <strong> willing and able</strong> to purchase at a given price
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>.
+              <span className="text-navy-400"> (Mankiw &amp; Taylor, 2026, p. 35)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">
@@ -118,7 +118,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               <strong>Quantity supplied</strong> is the amount that sellers are
               <strong> willing and able</strong> to sell at different prices
-              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>.
+              <span className="text-navy-400"> (Mankiw &amp; Taylor, 2026, p. 40)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">
