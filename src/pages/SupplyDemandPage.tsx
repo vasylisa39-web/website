@@ -15,6 +15,8 @@ import {
   CircleDot,
   Sandwich,
   LayoutGrid,
+  BookOpen,
+  ExternalLink,
 } from 'lucide-react';
 import type { PageId } from '@/components/Navbar';
 import PageHeader from '@/components/PageHeader';
@@ -99,6 +101,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               <strong>Quantity demanded</strong> is the amount of a good that buyers are
               <strong> willing and able</strong> to purchase at a given price.
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">
@@ -115,6 +118,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               <strong>Quantity supplied</strong> is the amount that sellers are
               <strong> willing and able</strong> to sell at different prices.
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">
@@ -134,6 +138,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               All else equal, as price rises, the <strong>quantity demanded</strong> falls. The demand
               curve slopes downward because consumers buy less at higher prices.
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span>
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800"><strong>Demand curve:</strong> shows the quantity buyers are willing and able to purchase at each price.</p>
@@ -147,9 +152,10 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             <p className="text-navy-700 leading-relaxed mb-4">
               All else equal, as price rises, the <strong>quantity supplied</strong> rises. The supply
               curve slopes upward because producers offer more at higher prices.
+              <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span>
             </p>
             <div className="definition">
-              <p className="text-sm text-navy-800"><strong>Supply curve:</strong> shows the quantity sellers are willing and able to produce at each price.</p>
+              <p className="text-sm text-navy-800"><strong>Supply curve:</strong> shows the quantity sellers are willing and able to produce at each price. <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 40)</span></p>
             </div>
           </div>
         </div>
@@ -283,7 +289,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </div>
             <p className="text-sm text-navy-700 leading-relaxed mb-3">
               A visual representation of the relationship between price and the quantity demanded for
-              a good or service. It is necessary because it:
+              a good or service <span className="text-navy-400">(Kenton, 2024)</span>. It is necessary because it:
             </p>
             <ul className="space-y-1.5 text-sm text-navy-700">
               <li className="flex gap-2"><CircleDot size={14} className="text-demand-500 mt-1 shrink-0" /> <span>Shows how much of a good/service buyers want at different prices</span></li>
@@ -301,7 +307,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </div>
             <p className="text-sm text-navy-700 leading-relaxed mb-3">
               A visual representation of the relationship between the price and the quantity supplied
-              for a good or service. It is necessary because it:
+              for a good or service <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 41)</span>. It is necessary because it:
             </p>
             <ul className="space-y-1.5 text-sm text-navy-700">
               <li className="flex gap-2"><CircleDot size={14} className="text-supply-500 mt-1 shrink-0" /> <span>Shows how much of a good/service sellers are willing to sell at various prices</span></li>
@@ -323,7 +329,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               good or service.
             </p>
             <div className="definition">
-              <p className="text-sm text-navy-800">Allows businesses and economists a direct market analysis.</p>
+              <p className="text-sm text-navy-800">Allows businesses and economists a direct market analysis. <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 35)</span></p>
             </div>
           </div>
 
@@ -334,7 +340,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </div>
             <p className="text-sm text-navy-700 leading-relaxed mb-3">
               A table describing the relationship between the price of a good or service and the
-              quantity supplied.
+              quantity supplied <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 41)</span>.
             </p>
             <div className="definition">
               <p className="text-sm text-navy-800">Aids in profit maximisation and resource waste management.</p>
@@ -351,14 +357,16 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
           <p className="text-sm text-navy-700 leading-relaxed">
             A <strong>demand schedule</strong> shows how much buyers are willing to consume at various
             prices, while a <strong>supply schedule</strong> shows the amount sellers are willing to
-            produce and sell at those same prices.
+            produce and sell at those same prices. <span className="text-navy-400">(Kenton, 2024)</span>
           </p>
         </div>
 
         {/* Shifters */}
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
-            <h3 className="font-display font-bold text-lg text-demand-600 mb-3">Demand Shifters</h3>
+            <h3 className="font-display font-bold text-lg text-demand-600 mb-3">
+              Demand Shifters <span className="text-xs font-normal text-navy-400">(Kenton, 2019)</span>
+            </h3>
             <ul className="space-y-2 text-sm text-navy-700">
               <li className="flex gap-2"><TrendingUp size={16} className="text-demand-500 mt-0.5 shrink-0" /> <span><strong>Income</strong> — higher income raises demand for normal goods.</span></li>
               <li className="flex gap-2"><TrendingUp size={16} className="text-demand-500 mt-0.5 shrink-0" /> <span><strong>Tastes &amp; preferences</strong> — trends shift demand.</span></li>
@@ -368,7 +376,9 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
             </ul>
           </div>
           <div className="card p-6">
-            <h3 className="font-display font-bold text-lg text-supply-600 mb-3">Supply Shifters</h3>
+            <h3 className="font-display font-bold text-lg text-supply-600 mb-3">
+              Supply Shifters <span className="text-xs font-normal text-navy-400">(Kenton, 2019)</span>
+            </h3>
             <ul className="space-y-2 text-sm text-navy-700">
               <li className="flex gap-2"><TrendingDown size={16} className="text-supply-500 mt-0.5 shrink-0" /> <span><strong>Production costs</strong> — higher costs shift supply left.</span></li>
               <li className="flex gap-2"><TrendingDown size={16} className="text-supply-500 mt-0.5 shrink-0" /> <span><strong>Technology</strong> — better tech shifts supply right.</span></li>
@@ -411,7 +421,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               </div>
               <p className="text-sm text-navy-700 leading-relaxed mb-4">
                 If the price of one good <strong>rises</strong>, there will be a <strong>rise in
-                demand</strong> for the other.
+                demand</strong> for the other. <span className="text-navy-400">(Hayes, 2024)</span>
               </p>
 
               <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Examples</p>
@@ -453,7 +463,7 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
               </div>
               <p className="text-sm text-navy-700 leading-relaxed mb-4">
                 If the price of one good <strong>rises</strong>, there will be a <strong>decrease in
-                demand</strong> for the other.
+                demand</strong> for the other. <span className="text-navy-400">(Mankiw &amp; Taylor, 2026, p. 39)</span>
               </p>
 
               <p className="text-xs font-semibold text-navy-500 uppercase tracking-wider mb-2">Examples</p>
@@ -490,6 +500,63 @@ export default function SupplyDemandPage({ onNavigate }: Props) {
           change in price moves you along a curve, while a change in any other determinant shifts the entire curve. 
           Related goods matter too: a rise in the price of a substitute increases demand for the other good, while a rise in the price of a complement decreases it.
         </KeyTakeaway>
+
+        {/* References */}
+        <div className="card p-6 lg:p-8">
+          <div className="flex items-center gap-3 mb-4">
+            <BookOpen size={20} className="text-navy-700" />
+            <h2 className="text-xl font-extrabold text-navy-900">References</h2>
+          </div>
+          <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
+            <li>
+              <p>
+                Kenton, W. (2024, May 31). <em>Demand curve</em>. Investopedia.
+              </p>
+              <a
+                href="https://www.investopedia.com/terms/d/demand-curve.asp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                investopedia.com/terms/d/demand-curve.asp
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+            <li>
+              <p>
+                Kenton, W. (2019). <em>Tracing the supply curve</em>. Investopedia.
+              </p>
+              <a
+                href="https://www.investopedia.com/terms/s/supply-curve.asp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                investopedia.com/terms/s/supply-curve.asp
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+            <li>
+              <p>
+                Hayes, A. (2024, July 31). <em>How substitutes work</em>. Investopedia.
+              </p>
+              <a
+                href="https://www.investopedia.com/terms/s/substitute.asp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                investopedia.com/terms/s/substitute.asp
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+            <li>
+              <p>
+                Mankiw, N. G., &amp; Taylor, M. P. (2020). <em>Economics</em> (5th ed.). Cengage Learning.
+              </p>
+            </li>
+          </ol>
+        </div>
       </div>
     </>
   );
