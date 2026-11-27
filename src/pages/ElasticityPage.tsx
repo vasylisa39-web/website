@@ -117,8 +117,8 @@ const DETERMINANTS = [
     icon: ShoppingBasket,
     title: 'Substitutes',
     question: 'Are there many substitutes for this product?',
-    rule: 'More available substitutes → more elastic. Limited substitutes → inelastic.',
-    citation: '(Mankiw & Taylor, 2020, p. 54)',
+    rule: 'More available substitutes → more elastic. Limited substitutes → inelastic',
+    citation: '(Mankiw & Taylor, 2020, p. 54).',
     example: {
       heading: 'Example: Cereal',
       body: 'There are many alternatives for a similar type of cereal — Cocopops from Kellogg\'s and CocoSnaps from Tesco. With so many stand-ins, buyers easily switch when prices move, making cereal elastic.',
@@ -129,8 +129,8 @@ const DETERMINANTS = [
     icon: Truck,
     title: 'Necessity',
     question: 'Is this service necessary for me?',
-    rule: 'Luxuries are elastic. Necessities are inelastic.',
-    citation: '(Mankiw & Taylor, 2020, p. 54)',
+    rule: 'Luxuries are elastic. Necessities are inelastic',
+    citation: '(Mankiw & Taylor, 2020, p. 54).',
     example: {
       heading: 'Example: Food delivery',
       body: 'Food itself is essential for survival, so it is inelastic. But having fast food delivered to you by services like Deliveroo is a luxury — that extra convenience makes food delivery elastic.',
@@ -141,8 +141,8 @@ const DETERMINANTS = [
     icon: Shirt,
     title: 'Market Definition',
     question: 'A specific product I can replace — but what about the broad category?',
-    rule: 'The more narrowly the market is defined, the more elastic it tends to become.',
-    citation: '(Mankiw & Taylor, 2020, p. 54)',
+    rule: 'The more narrowly the market is defined, the more elastic it tends to become',
+    citation: '(Mankiw & Taylor, 2020, p. 54).',
     example: {
       heading: 'Example: Jacket vs. Leather Jacket',
       body: 'A jacket is essential to survive the Irish weather, so the broad category is inelastic. But leather jackets are a specific sub-category: if their price rises, buyers switch to a different style of jacket. That makes leather jackets elastic.',
@@ -153,8 +153,8 @@ const DETERMINANTS = [
     icon: Sprout,
     title: 'Time Horizon',
     question: 'Will the elasticity of this product change in the future?',
-    rule: 'Demand is more elastic in the long run as consumers adapt.',
-    citation: '(Mankiw & Taylor, 2020, p. 54)',
+    rule: 'Demand is more elastic in the long run as consumers adapt',
+    citation: '(Mankiw & Taylor, 2020, p. 54).',
     example: {
       heading: 'Example: Store-bought vs. home-grown vegetables',
       body: 'If vegetable prices suddenly rise, immediate demand stays high — inelastic in the short run. Over time, consumers adapt by growing their own vegetables in the garden, so store-bought vegetables become elastic in the long run.',
