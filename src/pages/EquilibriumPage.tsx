@@ -359,36 +359,36 @@ export default function EquilibriumPage({ onNavigate }: Props) {
           <ol className="space-y-4 text-sm text-navy-700 leading-relaxed list-decimal pl-5">
             <li>
               <p>
-                Mankiw, N. G., &amp; Taylor, M. P. (2020). <em>Economics</em> (5th ed.). Cengage Learning.
+                Mankiw, N. G., &amp; Taylor, M. P. (2026). <em>Economics</em> (7th ed.). Cengage Learning.
               </p>
             </li>
             <li>
               <p>
-                Financial Times — Jonathan Eley, <em>PlayStation 5 Launch in UK Descends into Chaos</em>,
-                published 19/11/2020. Available at:
+                Jacobs, E. (2023, March 11). <em>The playground Prime craze is a lesson in modern marketing</em>.
+                Financial Times.
               </p>
               <a
-                href="https://www.ft.com/content/c316acaa-c99b-48ca-8374-c9191f4423b2"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
-              >
-                ft.com/content/c316acaa-c99b-48ca-8374-c9191f4423b2
-                <ExternalLink size={13} className="shrink-0" />
-              </a>
-            </li>
-            <li>
-              <p>
-                Financial Times — Emma Jacobs, <em>The Playground Prime Craze Is a Lesson in Modern Marketing</em>,
-                published 11/3/2023. Available at:
-              </p>
-              <a
-                href="https://www.ft.com/content/4e9c33f2-deeb-4dbe-a296-3cf44bb2c5de"
+                href="https://www.ft.com/content/4e9c33f2-deeb-4dbe-a296-3cf44bb2c5de?syn-25a6b1a6=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
               >
                 ft.com/content/4e9c33f2-deeb-4dbe-a296-3cf44bb2c5de
+                <ExternalLink size={13} className="shrink-0" />
+              </a>
+            </li>
+            <li>
+              <p>
+                Eley, J. (2020, November 19). <em>PlayStation 5 launch in UK descends into chaos</em>.
+                Financial Times.
+              </p>
+              <a
+                href="https://www.ft.com/content/c316acaa-c99b-48ca-8374-c9191f4423b2?syn-25a6b1a6=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-demand-600 hover:text-demand-500 transition-colors break-all"
+              >
+                ft.com/content/c316acaa-c99b-48ca-8374-c9191f4423b2
                 <ExternalLink size={13} className="shrink-0" />
               </a>
             </li>
